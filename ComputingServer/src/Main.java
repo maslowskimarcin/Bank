@@ -10,19 +10,18 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException {
 
-        List<String> list =new ArrayList<>();
-       // list=logOn(); //logOn trial
-        list=transfer();
-        for (String s: list)
-            System.out.print(s + " ");
-        System.out.println("\n");
-        ConnectDB connectDB=new ConnectDB(list);  //create connection
-        list=connectDB.getList();
+        Temp temp = new Temp();
+//        LogTo logto = (LogTo) temp.logto(); //object from base serve
+//        ConnectDB connectDB = new ConnectDB(logto);  //create connection
+//        Object finish = connectDB.getObject(); //result
+//        LogFrom logFrom = (LogFrom) finish;  //display res
+//        System.out.println(logFrom); //display res
 
-        System.out.println("OUTPUT LIST :");
-        for (String j:list)
-            System.out.print(j + " ");
-
+        PersonalData personalData=(PersonalData)temp.addNewAccountRequest();
+        ConnectDB connectDB=new ConnectDB(personalData);
+        Object finish = connectDB.getObject(); //result
+        String err = (String ) finish;  //display res
+        System.out.println(err); //display res
     }
 
     public static void age() throws ParseException {
@@ -66,35 +65,12 @@ public class Main {
         System.out.println("AGE "+age);}
 
 
-    public static List<String>  logOn(){
-        List<String> list=new ArrayList<>() ;
-        list.add("logowanie");
-        list.add("2");
-        list.add("Admin2");
-        return list;
-    }
 
-    public static List<String> checkAddCustomer(){
-        List<String> list=new ArrayList<>() ;
-        list.add("dodawanie");
-        list.add("Jurek");
-        list.add("Owsiak");
-        list.add("95020658964");
-        list.add("Kraków");
-        list.add("łąkowa");
-        list.add("30-022");
-        list.add("AYD231986");
-        list.add("238123675");
-        list.add("kn@gmail.com");
-        return list;
-    }
-
-    public static  List<String> transfer(){
+    public static void transfer(){
         List<String> list=new ArrayList<>() ;
         list.add("przelew"); //what
         list.add("3"); //from
         list.add("11111h111"); //to
         list.add("20.00"); //amount
-        return  list;
     }
 }

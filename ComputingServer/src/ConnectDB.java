@@ -7,10 +7,10 @@ public class ConnectDB {
     private Connection connection=null;
     private Statement statement=null;
     ResultSet rS =null;
-    private List<String> list;
+    Object temp;
 
-    public ConnectDB(List<String> list) throws SQLException {
-        this.list=new ArrayList<>(list);
+    public ConnectDB(Object o) throws SQLException {
+        temp=o;
             try {
                connect();
             }catch (SQLException e){
@@ -26,7 +26,7 @@ public class ConnectDB {
         try {
             connection = DriverManager.getConnection(URL,"root","");
             statement=connection.createStatement();
-            list=chooseOperation(statement);
+            temp=chooseOperation(statement);
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
             e.printStackTrace();
@@ -43,25 +43,25 @@ public class ConnectDB {
         }
     }
 
-    private List<String> chooseOperation(Statement statement) throws SQLException {
-        SQLcommand sqlCommand=new SQLcommand(statement,list);
-        String operation=list.get(0);
+    private Object chooseOperation(Statement statement) throws SQLException {
+        SQLcommand sqlCommand=new SQLcommand(statement,temp);
+        String operation=temp.getClass().toString();
 
        switch (operation){
-           case"logowanie":
-                list=sqlCommand.logIn();
+           case"class LogTo":
+                temp=sqlCommand.logTo();
                break;
-           case "dodawanie":
-               list=sqlCommand.addCustomer();
+           case "class PersonalData":
+               temp=sqlCommand.addNewAccReq();
            case "przelew":
-               list=sqlCommand.transfer();
+           //    temp=sqlCommand.transfer();
                break;
        }
 
-       return list;
+       return temp;
     }
 
-    public List<String> getList() {
-        return list;
+    public Object getObject() {
+        return temp;
     }
 }
