@@ -9,34 +9,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="750.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerAdmin">
+<Pane prefHeight="750.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerClient">
    <children>
       <AnchorPane fx:id="content" accessibleRole="NODE" layoutX="200.0" layoutY="145.0" prefHeight="605.0" prefWidth="750.0">
          <children>
             <ImageView fitHeight="605.0" fitWidth="750.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@mainBackgroundAdmin.png" />
+                  <Image url="@backgroundSmaller.png" />
                </image>
             </ImageView>
-            <Label alignment="TOP_CENTER" layoutX="148.0" layoutY="139.0" prefHeight="108.0" prefWidth="436.0" text="Witaj w elektroniczej administracji &#10;PK Bank" textAlignment="CENTER">
+            <ImageView fitHeight="209.0" fitWidth="264.0" layoutX="267.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@pkLogo02.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="226.0" layoutY="310.0" text="Witaj w bankowości elektronicznej &#10;PK Bank" textAlignment="CENTER">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="208.0" layoutY="256.0" text="Wybierz operacje jakiej chcesz dokonać.">
+            <Label layoutX="217.0" layoutY="492.0" text="Wybierz operacje jakiej chcesz dokonać.">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="145.0" prefWidth="950.0" style="-fx-background-color: #FFFFFF;">
+      <AnchorPane prefHeight="145.0" prefWidth="950.0" style="-fx-background-color: #0044AA;">
          <children>
-            <ImageView fitHeight="145.0" fitWidth="950.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@backgroundUpAdmin.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="130.0" fitWidth="140.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@pkLogo02.png" />
