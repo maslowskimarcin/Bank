@@ -20,7 +20,28 @@ public class Client
     {
         System.out.println(data);
         List<String> serverData = new ArrayList<String>();
-        //login test
+        
+
+        // String url = "rmi://217.182.77.242/";
+        String url = "rmi://localhost/";
+        String name = "maslo";
+
+        try
+        {
+            Context context = new InitialContext();
+
+
+            ServerFace login = (ServerFace) context.lookup(url + "ServerFace");
+
+            //wywołanie metdoy chcecklogin z serwera
+            login.CheckLogin(name, "0");
+
+
+        } catch (Exception e)
+        {
+            System.err.println(e);
+
+        }
         serverData.addAll(Arrays.asList("0", "a", "192847"));
         return serverData;
     }
