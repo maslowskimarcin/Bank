@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="lib">
+  <library name="libPac">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../lib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../libPac.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

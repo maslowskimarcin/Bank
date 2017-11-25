@@ -32,7 +32,12 @@ public class Main extends Application {
         if (errorCode==1)
         {   labLoginProblem.setText("Zalogowany!");
             //changing scene for admin
-            Parent homePageParent = FXMLLoader.load(getClass().getResource("HomePageAdminFX.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HomePageAdminFX.fxml"));
+            Parent homePageParent = (Parent) fxmlLoader.load();
+
+            ControllerAdmin controller = fxmlLoader.<ControllerAdmin>getController();
+            controller.setClient(client);
+
             Scene homePageScene = new Scene(homePageParent);
             Stage appStage = (Stage) labLoginProblem.getScene().getWindow();
             appStage.setScene(homePageScene);
@@ -42,7 +47,12 @@ public class Main extends Application {
         {
             labLoginProblem.setText("Zalogowany!");
             //changing scene for client
-            Parent homePageParent = FXMLLoader.load(getClass().getResource("HomePageClientFX.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HomePageClientFX.fxml"));
+            Parent homePageParent = (Parent) fxmlLoader.load();
+
+            ControllerClient controller = fxmlLoader.<ControllerClient>getController();
+            controller.setControllerClient(client);
+
             Scene homePageScene = new Scene(homePageParent);
             Stage appStage = (Stage) labLoginProblem.getScene().getWindow();
             appStage.setScene(homePageScene);
@@ -69,6 +79,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("LoginFX.fxml"));
         primaryStage.setTitle("PK Bank");
         primaryStage.setScene(new Scene(root, 960, 770));
+
         primaryStage.show();
         primaryStage.setMaxWidth(960);
         primaryStage.setMaxHeight(780);

@@ -6,29 +6,37 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import javax.swing.text.html.ImageView;
 import java.io.IOException;
-
-import static javafx.fxml.FXMLLoader.load;
 
 public class ControllerClient
 {
     @FXML
+    private AnchorPane currentPane;
+    @FXML
     private Button home;
     @FXML
-    private AnchorPane content;
+    private Label accNo;
+    @FXML
+    private Label balance;
 
+    @FXML
+    private AnchorPane greetingPane;
+    @FXML
+    private AnchorPane homePane;
+
+    private Client client;
+
+    public void setControllerClient(Client client){
+        this.client = client;
+        currentPane = greetingPane;
+        homePane.setVisible(false);
+    }
     public void handleBtnBalance()throws IOException
     {
-        content.getChildren().setAll((Node) FXMLLoader.load(getClass().getResource("ContentTransferFX.fxml")));
-
-    }
-    public void handleBtnHome()throws IOException
-    {
-        content.getChildren().setAll((Node) FXMLLoader.load(getClass().getResource("HomePageClientFX.fxml")));
 
     }
 
@@ -40,5 +48,14 @@ public class ControllerClient
         Stage appStage = (Stage) home.getScene().getWindow();
         appStage.setScene(homePageScene);
         appStage.show();
+    }
+    @FXML
+    public void handleMainPage()
+    {   currentPane.setVisible(false);
+        currentPane = homePane;
+        currentPane.setVisible(true);
+
+        accNo.setText(client.accNo);
+        balance.setText(client.balance);
     }
 }

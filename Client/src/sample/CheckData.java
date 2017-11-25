@@ -19,7 +19,11 @@ public class CheckData
 
     private boolean textHasSpecial(String text)
     {
-        if (text.matches(".*[-!@#$,<.>/?;:'%^&*()`~}{|_=+].*") || text.matches("\"") || text.matches("]")) // nie sprawdzane : [ \
+        if (text.matches(".*[-!@#$,<.>/?;:'%^&*()`~}{|_=+].*") ||
+            text.contains("]") ||
+            text.contains("[") ||
+            text.contains("\"") ||
+            text.contains("\\"))
             return true;
         return false;
     }
@@ -87,21 +91,33 @@ public class CheckData
                 !textHasNumber(city) &&
                 !textHasSpecial(city);
 
-        isStreetCorrect = textHasNumber(street) &&
-                !textHasSpecial(street);
+        // has only "/"
+        isStreetCorrect = !street.isEmpty() &&
+                textHasNumber(street) &&
+                !street.matches(".*[-!@#$,<.>?;:'%^&*()`~}{|_=+].*") &&
+                !street.contains("]")&&
+                !street.contains("[") &&
+                !street.contains("\"")&&
+                !street.contains("\\");
 
+        // has only "-"
         isZipCodeCorrect = !zipCode.isEmpty() &&
-                !(zipCode.matches(".*[!@#$,<.>/?;:'%^&*()`~}{|_=+].*") || zipCode.matches("\"") || zipCode.matches("]")) &&
-                !textHasCharacter(zipCode);
+                !(zipCode.matches(".*[!@#$,<.>/?;:'%^&*()`~}{|_=+].*")) &&
+                !textHasCharacter(zipCode) &&
+                zipCode.contains("-")&&
+                !zipCode.contains("]")&&
+                !zipCode.contains("[") &&
+                !zipCode.contains("\"")&&
+                !zipCode.contains("\\");
 
-        if(idNumber.isEmpty() || idNumber.length() == 9)
+        if(idNumber.isEmpty() || !(idNumber.length() == 9))
         {
             isIDNumberCorrect = false;
             isIDSeriesCorrect = false;
         }
         else
-        {   idNumOnly = idNumber.substring(0,2);
-            idSeriesOnly = idNumber.substring(3);
+        {   idSeriesOnly = idNumber.substring(0,3);
+            idNumOnly = idNumber.substring(3);
 
             isIDNumberCorrect = !textHasCharacter(idNumOnly) &&
                     !textHasSpecial(idNumOnly);
@@ -109,12 +125,18 @@ public class CheckData
                     !textHasLower(idSeriesOnly);
         }
 
-        isPhoneNumCorrect = !textHasCharacter(phoneNum) &&
+        isPhoneNumCorrect = !phoneNum.isEmpty() &&
+                !textHasCharacter(phoneNum) &&
                 !textHasSpecial(phoneNum);
 
         isEmialCorrect = !email.isEmpty() &&
-                !(email.matches(".*[!#$,<>/?;:'%^&*()`~}{|_=+].*") || email.matches("\"") || email.matches("]")) &&
-                email.matches(".*[@.]*.");
+                !email.matches(".*[!#$,<>/?;:'%^&*()`~}{|_=+].*") &&
+                !email.contains("]")&&
+                !email.contains("[") &&
+                !email.contains("\"")&&
+                !email.contains("\\")&&
+                email.contains("@")&&
+                email.contains(".");
 
         return isCityCorrect && isIDNumberCorrect && isIDSeriesCorrect && isLastNameCorrect && isNameCorrect && isPeselCorrecct && isPhoneNumCorrect && isStreetCorrect && isZipCodeCorrect && isEmialCorrect;
     }

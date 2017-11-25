@@ -31,10 +31,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="130.0" layoutY="192.0" />
-      <TextField layoutX="370.0" layoutY="192.0" />
-      <TextField layoutX="129.0" layoutY="241.0" prefHeight="26.0" prefWidth="222.0" />
-      <TextField layoutX="130.0" layoutY="285.0" />
+      <TextField fx:id="name" layoutX="130.0" layoutY="192.0" />
+      <TextField fx:id="lastName" layoutX="370.0" layoutY="192.0" />
+      <TextField fx:id="pesel" layoutX="129.0" layoutY="241.0" prefHeight="26.0" prefWidth="222.0" />
+      <TextField fx:id="idNumber" layoutX="130.0" layoutY="285.0" />
       <Line endX="600.0" layoutX="130.0" layoutY="183.0" startX="-100.0" />
       <Label layoutX="299.0" layoutY="196.0" text="Nazwisko :" />
       <VBox layoutX="28.0" layoutY="196.0" prefHeight="115.0" prefWidth="101.0" spacing="30.0">
@@ -56,13 +56,13 @@
             <Label alignment="CENTER_RIGHT" text="MIasto : " />
          </children>
       </VBox>
-      <TextField layoutX="131.0" layoutY="362.0" prefHeight="26.0" prefWidth="260.0" />
+      <TextField fx:id="street" layoutX="131.0" layoutY="362.0" prefHeight="26.0" prefWidth="260.0" />
       <Label layoutX="412.0" layoutY="367.0" text="Nr domu / Nr lokalu : " />
       <Label layoutX="598.0" layoutY="367.0" text="/" />
-      <TextField layoutX="539.0" layoutY="363.0" prefHeight="26.0" prefWidth="52.0" />
-      <TextField layoutX="604.0" layoutY="363.0" prefHeight="26.0" prefWidth="52.0" />
-      <TextField layoutX="438.0" layoutY="412.0" prefHeight="26.0" prefWidth="196.0" />
-      <TextField layoutX="131.0" layoutY="412.0" prefHeight="26.0" prefWidth="196.0" />
+      <TextField fx:id="houseNo1" layoutX="539.0" layoutY="363.0" prefHeight="26.0" prefWidth="52.0" />
+      <TextField fx:id="houseNo2" layoutX="604.0" layoutY="363.0" prefHeight="26.0" prefWidth="52.0" />
+      <TextField fx:id="zipCode" layoutX="438.0" layoutY="412.0" prefHeight="26.0" prefWidth="196.0" />
+      <TextField fx:id="city" layoutX="131.0" layoutY="412.0" prefHeight="26.0" prefWidth="196.0" />
       <Label layoutX="344.0" layoutY="416.0" text="Kod pocztowy : " />
       <VBox layoutX="56.0" layoutY="495.0" spacing="30.0">
          <children>
@@ -76,9 +76,9 @@
          </font>
       </Label>
       <Line endX="600.0" layoutX="130.0" layoutY="483.0" startX="-100.0" />
-      <TextField layoutX="131.0" layoutY="495.0" prefHeight="26.0" prefWidth="196.0" />
-      <TextField layoutX="131.0" layoutY="541.0" prefHeight="26.0" prefWidth="196.0" />
-      <TextField layoutX="450.0" layoutY="495.0" prefHeight="26.0" prefWidth="196.0" />
+      <TextField fx:id="email" layoutX="131.0" layoutY="495.0" prefHeight="26.0" prefWidth="196.0" />
+      <TextField fx:id="phoneNum" layoutX="131.0" layoutY="541.0" prefHeight="26.0" prefWidth="196.0" />
+      <TextField fx:id="emailRepeated" layoutX="450.0" layoutY="495.0" prefHeight="26.0" prefWidth="196.0" />
       <Label alignment="CENTER_RIGHT" layoutX="342.0" layoutY="499.0" prefHeight="18.0" prefWidth="108.0" text="Powtórz E-mail : " />
       <Button layoutX="39.0" layoutY="641.0" mnemonicParsing="false" onAction="#handleSendRequest" prefHeight="53.0" prefWidth="185.0" text="Złóż wniosek">
          <font>
@@ -86,7 +86,7 @@
          </font>
       </Button>
       <Button layoutX="731.0" layoutY="641.0" mnemonicParsing="false" onAction="#handleGetBack" prefHeight="53.0" prefWidth="185.0" text="Powrót do logowania" />
-      <Label layoutX="42.0" layoutY="583.0" prefHeight="42.0" prefWidth="684.0" textFill="RED">
+      <Label fx:id="errorText" layoutX="42.0" layoutY="583.0" prefHeight="42.0" prefWidth="684.0" textFill="RED">
          <font>
             <Font size="18.0" />
          </font>

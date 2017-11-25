@@ -14,6 +14,11 @@ public class ControllerAdmin
 
     @FXML
     private Button home;
+    private Client client;
+
+    public void setClient(Client client){
+        this.client = client;
+    }
 
     @FXML
     public void handleLogOut() throws IOException
