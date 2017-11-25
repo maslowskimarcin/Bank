@@ -17,11 +17,23 @@ public class Main {
 //        LogFrom logFrom = (LogFrom) finish;  //display res
 //        System.out.println(logFrom); //display res
 
-        PersonalData personalData=(PersonalData)temp.addNewAccountRequest();
-        ConnectDB connectDB=new ConnectDB(personalData);
-        Object finish = connectDB.getObject(); //result
-        String err = (String ) finish;  //display res
-        System.out.println(err); //display res
+//        PersonalData personalData=(PersonalData)temp.addNewAccountRequest();
+//        ConnectDB connectDB=new ConnectDB(personalData);
+//        Object finish = connectDB.getObject(); //result
+//        String err = (String ) finish;  //display res
+//        System.out.println(err); //display res
+
+//          RequestListAddAccount req=new RequestListAddAccount();
+//          ConnectDB connectDB=new ConnectDB(req);
+//          Object finish = connectDB.getObject();
+//          RequestListAddAccount f= (RequestListAddAccount) connectDB.getObject();
+//            System.out.println(f.error);
+//            for (AddAccountRequest a:f.data)
+//                System.out.println(a);
+
+        String answer="answer";
+        ConnectDB connectDB=new ConnectDB(answer);
+        Object finish = connectDB.getObject();
     }
 
     public static void age() throws ParseException {
@@ -65,12 +77,4 @@ public class Main {
         System.out.println("AGE "+age);}
 
 
-
-    public static void transfer(){
-        List<String> list=new ArrayList<>() ;
-        list.add("przelew"); //what
-        list.add("3"); //from
-        list.add("11111h111"); //to
-        list.add("20.00"); //amount
-    }
 }

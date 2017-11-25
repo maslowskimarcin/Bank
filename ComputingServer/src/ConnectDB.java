@@ -49,12 +49,16 @@ public class ConnectDB {
 
        switch (operation){
            case"class LogTo":
-                temp=sqlCommand.logTo();
+               temp=sqlCommand.logTo();
                break;
            case "class PersonalData":
-               temp=sqlCommand.addNewAccReq();
-           case "przelew":
-           //    temp=sqlCommand.transfer();
+               temp=sqlCommand.requestAddAccount();
+               break;
+           case "class RequestListAddAccount":
+               temp=sqlCommand.getRequestAddAccount();
+               break;
+           case "answer":
+               temp=sqlCommand.answerAddAccountReq();
                break;
        }
 

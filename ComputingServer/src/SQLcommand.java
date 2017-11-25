@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**The class implements functions which gather data
- * from sqlite database
+ * from database
  */
 public class SQLcommand {
     private Statement statement;
@@ -56,7 +56,11 @@ public class SQLcommand {
         return logFrom;
     }
 
-    public String addNewAccReq (){
+    /**
+     * Add new customer to request table in database
+     * @return error
+     */
+    public String requestAddAccount (){
         PersonalData personalData=(PersonalData) temp;
         int id_req=0;
         try{
@@ -65,7 +69,7 @@ public class SQLcommand {
                statement.execute("SELECT id_request FROM newaccountrequest");
                ResultSet rS=statement.getResultSet();
                while (rS.next())
-                   id_req = Integer.parseInt(rS.getString(1))+1;
+                   id_req = Integer.parseInt(rS.getString(1));
 
                 id_req+=1;
 
@@ -84,7 +88,7 @@ public class SQLcommand {
 
     /**
      * check person in customer , request table
-     * @param Pesel
+     * @param pesel
      * @throws Exception
      */
     public boolean checkIfCustomerExist (String pesel){
@@ -99,6 +103,11 @@ public class SQLcommand {
         }
     }
 
+    /**
+     * check person in AddAccReq
+     * @param pesel
+     * @ returnn false if someone is enrolled on requwst
+     */
     public boolean checkCustomerInAddAccReq (String pesel) {
         try {
             ResultSet rS=statement.executeQuery("Select * from newaccountrequest where pesel='"+pesel+"'");
@@ -109,6 +118,32 @@ public class SQLcommand {
             System.out.println(e.getMessage());
             return true;
         }
+    }
+
+    public Object getRequestAddAccount(){
+        RequestListAddAccount req=new RequestListAddAccount();
+        req.data=new ArrayList<>();
+        try {
+            ResultSet rS=statement.executeQuery("SELECT * from newaccountrequest");
+                while(rS.next()){
+                    AddAccountRequest addAcc=new AddAccountRequest(rS.getString("id_request"),rS.getString("firstname"),
+                                             rS.getString("lastname"),rS.getString("street"),rS.getString("zipCode"),
+                                             rS.getString("city"),rS.getString("pesel"),rS.getString("idNumber"),
+                                             rS.getString("email"),rS.getString("phoneNumber"));
+                    req.data.add(addAcc);
+                }
+            req.error="0";
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            req.error="1";
+        }
+
+        return  req;
+    }
+
+    public String answerAddAccountReq(){
+
+        return "0";
     }
 //    public List<String> transfer() {
 //        double balance,transferAmount,senderBalance;
