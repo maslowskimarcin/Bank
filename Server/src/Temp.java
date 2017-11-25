@@ -1,6 +1,3 @@
-/**
- * test class with data
- */
 public class Temp {
 
     public Object logto(){
