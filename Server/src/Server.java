@@ -91,7 +91,45 @@ public class Server extends UnicastRemoteObject implements ServerFace
     @Override
     public Object transfer(String login, String accFrom, String accTo, Object data) throws RemoteException
     {
-        return null;
+        Transfer transfer=(Transfer) data;
+        String balanceDB=check.checkBalance(transfer.accNoFrom);
+        double balance,transferAmount,senderBalance;
+        int id_transfer=0;
+
+        if(!transfer.equals("")) { // check balance before transfer
+            balance = Double.parseDouble(balanceDB);
+            transferAmount = Double.parseDouble(transfer.amount);
+            senderBalance = balance - transferAmount;
+
+            if (senderBalance < 0 || check.findAccount(transfer.accNoTo).equals("")) {
+                System.out.println("You don't have enough money/ there is no account with given number");
+               return "1";
+            }
+            else {
+                try {
+                    statement.executeUpdate("UPDATE account a  join customers c on a.pesel=c.pesel  set a.balance= '" + senderBalance + "' WHERE c.customer_nr='" + login + "'"); //update sender account
+                    statement.executeUpdate("UPDATE account SET balance=balance+'" + transferAmount + "' WHERE id_account='" + transfer.accNoTo + "'");
+                    statement.execute("SELECT id_transfer FROM transfer");
+                    rS=statement.getResultSet();
+
+                    while (rS.next())
+                        id_transfer = Integer.parseInt(rS.getString(1));
+
+                    id_transfer+=1;
+
+                    statement.executeUpdate("INSERT into transfer (id_transfer,accFrom,accTo,amount,title,date) " +
+                                            "VALUES ('"+id_transfer+"','"+transfer.accNoFrom+"','"+transfer.accNoTo+
+                                            "','"+transfer.amount+"','"+transfer.title+"','"+check.generateDate()+"')");
+                    return "0";
+                } catch (Exception e) {
+                    System.out.println("balance function exception");
+                    System.out.println(e.getMessage());
+                    return "1";
+                }
+            }
+        }else {
+            return "1";
+        }
     }
 
     @Override
@@ -160,15 +198,25 @@ public class Server extends UnicastRemoteObject implements ServerFace
 
         if (req.decision.equals("y")) {
             try {
-               String logNr=check.generateLogin();
-                statement.executeUpdate("INSERT INTO users (login,password,status) VALUES ('"+logNr+"','"+check.generatePassword()+"','C')");
+                String logNr = check.generateLogin();
+                statement.executeUpdate("INSERT INTO users (login,password,status) VALUES ('" + logNr + "','" + check.generatePassword() + "','C')");
                 statement.executeUpdate("INSERT INTO customers (pesel,customer_nr,firstname,lastname,idNumber,street,email,zipcode,city,phonenumber)" +
-                        " SELECT pesel,'"+logNr+"',firstname,lastname,idNumber,street,email,zipcode,city,phonenumber from newaccountrequest where id_request='"+req.id_req+"'");
-                statement.executeUpdate("INSERT into account (id_account,balance,pesel) SELECT '"+check.generateAccNr()+"',0.00,pesel " +
-                                        "from newaccountrequest where id_request='"+req.id_req+"'");
-                statement.executeUpdate("Delete from newaccountrequest where id_request='"+req.id_req+"'");
-            }catch (Exception e){
+                        " SELECT pesel,'" + logNr + "',firstname,lastname,idNumber,street,email,zipcode,city,phonenumber from newaccountrequest where id_request='" + req.id_req + "'");
+                statement.executeUpdate("INSERT into account (id_account,balance,pesel) SELECT '" + check.generateAccNr() + "',0.00,pesel " +
+                        "from newaccountrequest where id_request='" + req.id_req + "'");
+                statement.executeUpdate("Delete from newaccountrequest where id_request='" + req.id_req + "'");
+            } catch (Exception e) {
+                System.out.println("answer add acc req exception");
                 System.out.println(e.getMessage());
+                return "1";
+            }
+
+        }else {
+            try{
+                statement.executeUpdate("Delete from newaccountrequest where id_request='" + req.id_req + "'");
+            } catch (SQLException e) {
+                System.out.println("answer add acc req exception");
+                e.printStackTrace();
                 return "1";
             }
 

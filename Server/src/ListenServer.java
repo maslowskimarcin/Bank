@@ -23,29 +23,33 @@ public class ListenServer
 //        {
 //            e.printStackTrace();
 //        }
-//-------------LOGIN----------------
+
+        //TEST TEST TEST TEST TEST TEST//
         Temp t=new Temp();
-//        Object data0=t0.logto();
-//        Server temp0=new Server();
-//        Object finish0=temp0.logIn("1",data0);
+        Server server=new Server();
+//-------------LOGIN---------------
+//        Object data0=t.logto();
+//        Object finish0=server.logIn("1",data0);
 //        LogFrom logFrom=(LogFrom)finish0;
 //        System.out.println(logFrom);
 // --------------ADDNEWACCREQ-----------
-        Object data=t.addNewAccountRequest();
-        Server temp=new Server();
-        Object finish=temp.requestAddAccount("1",data);
-        String add=(String) finish;
-        System.out.println(add);
+//        Object data=t.addNewAccountRequest();
+//        Object finish=server.requestAddAccount("1",data);
+//        String add=(String) finish;
+//        System.out.println(add);
         //-------- REQLISTADDACC---------------
-//        Server temp2=new Server();
-//        Object finish2=temp2.getRequestAddAccount("1");
+//        Object finish2=server.getRequestAddAccount("1");
 //        RequestListAddAccount req= (RequestListAddAccount) finish2;
 //        System.out.println(req);
         //---------ANSWERADDACCREQ----------
-//        Server temp3=new Server();
-//        Object finish3=temp3.answerAddAccountReq("1",t.decisionAddAcc());
+//        Object finish3=server.answerAddAccountReq("1",t.decisionAddAcc());
 //        String err3=(String) finish3;
 //        System.out.println(err3);
+        //-----TRANSFER---------
+        Object data4=t.transfer();
+        Object finish4=server.transfer("2","123","123",data4);
+        String err4=(String)finish4;
+        System.out.println(err4);
     }
 
 }

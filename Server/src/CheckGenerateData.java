@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public class CheckGenerateData {
@@ -90,5 +92,42 @@ public class CheckGenerateData {
         }
         String saltStr = salt.toString();
         return saltStr;
+    }
+
+    public String checkBalance(String accNr){
+        try {
+            rS=statement.executeQuery("Select * from account where id_account='"+accNr+"'");
+            rS.next();
+            return rS.getString("balance");
+        }catch (Exception e){
+            System.out.println("generateAccNr exception");
+            System.out.println(e.getMessage());
+            return "";
+        }
+    }
+
+    public String findAccount(String accTo){
+        try {
+            ResultSet rS = statement.executeQuery("Select id_account from account where id_account='"+accTo+"'");
+           if( rS.next()) //check rS if it doesn't contain any data then return empty string
+               return rS.getString("id_account");
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }catch(Exception e){
+            System.out.println("findAccount function exception");
+            System.out.println(e.getMessage());
+        }
+        return "";
+    }
+
+    public boolean checkAge(String pesel){
+return false;
+    }
+
+    public String generateDate(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        System.out.println(dtf.format(localDate));
+        return "" +dtf.format(localDate);
     }
 }

@@ -23,8 +23,17 @@ public class Temp {
 
     public Object decisionAddAcc(){
         AddAccReqDecision req=new AddAccReqDecision();
-        req.decision="y";
+        req.decision="n";
         req.id_req="1";
         return req;
+    }
+
+    public Object transfer(){
+        Transfer t=new Transfer();
+        t.accNoFrom="111111111";
+        t.accNoTo="222222222";
+        t.amount="20";
+        t.title="tytul";
+        return t;
     }
 }
