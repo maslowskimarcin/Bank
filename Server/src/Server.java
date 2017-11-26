@@ -1,12 +1,16 @@
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Server extends UnicastRemoteObject implements ServerFace
 {
     final private String URL="jdbc:mysql://localhost:3306/bankdb";
     private Connection connection=null;
     private Statement statement=null;
+    private ResultSet rS=null;
+    CheckGenerateData check;
 
     protected Server() throws RemoteException, SQLException {
         super();
@@ -24,6 +28,7 @@ public class Server extends UnicastRemoteObject implements ServerFace
         } else {
             System.out.println("Failed to make connection!");
         }
+        check=new CheckGenerateData(statement);
     }
 
     @Override
@@ -50,7 +55,7 @@ public class Server extends UnicastRemoteObject implements ServerFace
         LogTo logTo=(LogTo)data;
         LogFrom logFrom=new LogFrom();
         try {
-            ResultSet rS= statement.executeQuery("Select password,status from users where login='"+logTo.login+"' and password='"+logTo.password+"'" );
+            rS= statement.executeQuery("Select password,status from users where login='"+logTo.login+"' and password='"+logTo.password+"'" );
             rS.next();
             if(logTo.password.equals(rS.getString("password"))){ //checks password capital/small letters
                 logFrom.error="0";
@@ -106,10 +111,10 @@ public class Server extends UnicastRemoteObject implements ServerFace
         PersonalData personalData=(PersonalData) data;
         int id_req=0;
         try{
-            if( checkIfCustomerExist(personalData.pesel) &&
-                    checkCustomerInAddAccReq(personalData.pesel) ){ //+++age
+            if( check.checkIfCustomerExist(personalData.pesel) &&
+                    check.checkCustomerInAddAccReq(personalData.pesel) ){ //+++age
                 statement.execute("SELECT id_request FROM newaccountrequest");
-                ResultSet rS=statement.getResultSet();
+                rS=statement.getResultSet();
                 while (rS.next())
                     id_req = Integer.parseInt(rS.getString(1));
 
@@ -128,38 +133,6 @@ public class Server extends UnicastRemoteObject implements ServerFace
         }
         statement.close();
         return "0";
-    }
-    /**
-     * check person in AddAccReq
-     * @param pesel
-     * @ returnn false if someone is enrolled on requwst
-     */
-    public boolean checkCustomerInAddAccReq (String pesel) {
-        try {
-            ResultSet rS=statement.executeQuery("Select * from newaccountrequest where pesel='"+pesel+"'");
-            rS.next();
-            rS.getString("firstname");
-            return false;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            return true;
-        }
-    }
-    /**
-     * check person in customer , request table
-     * @param pesel
-     * @throws Exception
-     */
-    public boolean checkIfCustomerExist (String pesel){
-        try {
-            ResultSet rS=statement.executeQuery("Select * from customers where pesel='"+pesel+"'");
-            rS.next();
-            rS.getString("firstname");
-            return false;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            return true;
-        }
     }
 
     @Override
@@ -183,7 +156,24 @@ public class Server extends UnicastRemoteObject implements ServerFace
     @Override
     public Object answerAddAccountReq(String login, Object data) throws RemoteException
     {
-        return null;
+        AddAccReqDecision req=(AddAccReqDecision) data;
+
+        if (req.decision.equals("y")) {
+            try {
+               String logNr=check.generateLogin();
+                statement.executeUpdate("INSERT INTO users (login,password,status) VALUES ('"+logNr+"','"+check.generatePassword()+"','C')");
+                statement.executeUpdate("INSERT INTO customers (pesel,customer_nr,firstname,lastname,idNumber,street,email,zipcode,city,phonenumber)" +
+                        " SELECT pesel,'"+logNr+"',firstname,lastname,idNumber,street,email,zipcode,city,phonenumber from newaccountrequest where id_request='"+req.id_req+"'");
+                statement.executeUpdate("INSERT into account (id_account,balance,pesel) SELECT '"+check.generateAccNr()+"',0.00,pesel " +
+                                        "from newaccountrequest where id_request='"+req.id_req+"'");
+                statement.executeUpdate("Delete from newaccountrequest where id_request='"+req.id_req+"'");
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+                return "1";
+            }
+
+        }
+        return "0";
     }
 
     @Override
@@ -237,7 +227,24 @@ public class Server extends UnicastRemoteObject implements ServerFace
     @Override
     public Object getRequestAddAccount(String login) throws RemoteException
     {
-        return null;
+        RequestListAddAccount req=new RequestListAddAccount();
+        req.data=new ArrayList<>();
+        try {
+            ResultSet rS=statement.executeQuery("SELECT * from newaccountrequest");
+            while(rS.next()){
+                AddAccountRequest addAcc=new AddAccountRequest(rS.getString("id_request"),rS.getString("firstname"),
+                        rS.getString("lastname"),rS.getString("street"),rS.getString("zipCode"),
+                        rS.getString("city"),rS.getString("pesel"),rS.getString("idNumber"),
+                        rS.getString("email"),rS.getString("phoneNumber"));
+                req.data.add(addAcc);
+            }
+            req.error="0";
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            req.error="1";
+        }
+
+        return  req;
     }
 
     @Override

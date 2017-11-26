@@ -9,15 +9,22 @@ public class Temp {
 
     public Object addNewAccountRequest(){
         PersonalData personal=new PersonalData();
-        personal.firstName="Jurek";
-        personal.lastName="Owsiak";
-        personal.pesel="95020658911";
+        personal.firstName="Mariola";
+        personal.lastName="Półka";
+        personal.pesel="95020658914";
         personal.city="Kraków";
-        personal.street="łąkowa 4/32";
+        personal.street="ulica 4/32";
         personal.zipCode="30-022";
         personal.idNumber="AYD231986";
-        personal.phoneNumber="238123675";
+        personal.phoneNumber="123456987";
         personal.email="kn@gmail.com";
         return personal;
+    }
+
+    public Object decisionAddAcc(){
+        AddAccReqDecision req=new AddAccReqDecision();
+        req.decision="y";
+        req.id_req="1";
+        return req;
     }
 }

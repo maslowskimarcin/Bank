@@ -24,21 +24,28 @@ public class ListenServer
 //            e.printStackTrace();
 //        }
 //-------------LOGIN----------------
-//        Temp t=new Temp();
-//        Object data=t.logto();
-//        Server temp=new Server();
-//        Object finish=temp.logIn("1",data);
-//        LogFrom logFrom=(LogFrom)finish;
-//        System.out.println(logFrom)
-// --------------ADDNEWACCREQ-----------
         Temp t=new Temp();
+//        Object data0=t0.logto();
+//        Server temp0=new Server();
+//        Object finish0=temp0.logIn("1",data0);
+//        LogFrom logFrom=(LogFrom)finish0;
+//        System.out.println(logFrom);
+// --------------ADDNEWACCREQ-----------
         Object data=t.addNewAccountRequest();
         Server temp=new Server();
         Object finish=temp.requestAddAccount("1",data);
         String add=(String) finish;
         System.out.println(add);
-
-        System.out.println("FINISH");
+        //-------- REQLISTADDACC---------------
+//        Server temp2=new Server();
+//        Object finish2=temp2.getRequestAddAccount("1");
+//        RequestListAddAccount req= (RequestListAddAccount) finish2;
+//        System.out.println(req);
+        //---------ANSWERADDACCREQ----------
+//        Server temp3=new Server();
+//        Object finish3=temp3.answerAddAccountReq("1",t.decisionAddAcc());
+//        String err3=(String) finish3;
+//        System.out.println(err3);
     }
 
 }
