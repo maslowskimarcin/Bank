@@ -15,8 +15,8 @@
       <file leaf-file-name="ComputingServerImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ComputingServer/ComputingServerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="643" column="0" lean-forward="true" selection-start-line="643" selection-start-column="0" selection-end-line="643" selection-end-column="0" />
+            <state relative-caret-position="65">
+              <caret line="611" column="12" lean-forward="true" selection-start-line="611" selection-start-column="12" selection-end-line="611" selection-end-column="12" />
               <folding>
                 <element signature="method#ComputingServerImpl#0;class#ComputingServerImpl#0" expanded="false" />
                 <element signature="method#restartPassword#0;class#ComputingServerImpl#0" expanded="false" />
@@ -39,46 +39,46 @@
                 <element signature="method#getRequestChangePersonalData#0;class#ComputingServerImpl#0" expanded="false" />
                 <element signature="method#requestLoan#0;class#ComputingServerImpl#0" expanded="false" />
                 <element signature="method#unlockAcc#0;class#ComputingServerImpl#0" expanded="false" />
-                <marker date="1515105589716" expanded="true" signature="2038:2108" ph="Select passw... users" />
-                <marker date="1515105589716" expanded="true" signature="2683:2779" ph="Select balan... account" />
-                <marker date="1515105589716" expanded="true" signature="2998:3057" ph="UPDATE users... " />
-                <marker date="1515105589716" expanded="true" signature="3154:3208" ph="SELECT count... users" />
-                <marker date="1515105589716" expanded="true" signature="3318:3385" ph="UPDATE users... " />
-                <marker date="1515105589716" expanded="true" signature="3875:3963" ph="Update users... " />
-                <marker date="1515105589716" expanded="true" signature="5047:5210" ph="UPDATE account... " />
-                <marker date="1515105589716" expanded="true" signature="5341:5457" ph="UPDATE account... " />
-                <marker date="1515105589716" expanded="true" signature="5504:5536" ph="SELECT id_tr... transfer" />
-                <marker date="1515105589716" expanded="true" signature="5825:5997" ph="INSERT into transfer... " />
-                <marker date="1515105589716" expanded="true" signature="6315:6393" ph="Update users... " />
-                <marker date="1515105589716" expanded="true" signature="7020:7140" ph="update account... " />
-                <marker date="1515105589716" expanded="true" signature="8374:8414" ph="SELECT id_re... newaccountrequest" />
-                <marker date="1515105589716" expanded="true" signature="8677:8953" ph="INSERT INTO newaccountrequest... " />
-                <marker date="1515105589716" expanded="true" signature="9552:9592" ph="SELECT id_re... newaccountrequest" />
-                <marker date="1515105589716" expanded="true" signature="9899:10175" ph="INSERT INTO newaccountrequest... " />
-                <marker date="1515105589716" expanded="true" signature="10720:10782" ph="Select * fro... loan" />
-                <marker date="1515105589716" expanded="true" signature="12141:12177" ph="Select id_in... investment" />
-                <marker date="1515105589716" expanded="true" signature="12404:12560" ph="INSERT INTO investment... " />
-                <marker date="1515105589716" expanded="true" signature="12593:12690" ph="UPDATE account... " />
-                <marker date="1515105589716" expanded="true" signature="13108:13217" ph="INSERT INTO users... " />
-                <marker date="1515105589716" expanded="true" signature="13262:13555" ph="INSERT INTO customers... " />
-                <marker date="1515105589716" expanded="true" signature="13399:13555" ph="SELECT pesel... newaccountrequest" />
-                <marker date="1515105589716" expanded="true" signature="13600:13791" ph="INSERT into account... " />
-                <marker date="1515105589716" expanded="true" signature="13647:13791" ph="SELECT 'miss... newaccountrequest" />
-                <marker date="1515105589716" expanded="true" signature="13836:13904" ph="Delete from newaccountrequest... " />
-                <marker date="1515105589716" expanded="true" signature="14184:14252" ph="Delete from newaccountrequest... " />
-                <marker date="1515105589716" expanded="true" signature="14705:15183" ph="UPDATE customers... " />
-                <marker date="1515105589716" expanded="true" signature="15229:15293" ph="Delete from newaccountrequest... " />
-                <marker date="1515105589716" expanded="true" signature="15586:15654" ph="Delete from newaccountrequest... " />
-                <marker date="1515105589716" expanded="true" signature="16103:16153" ph="SELECT * fro... loan" />
-                <marker date="1515105589716" expanded="true" signature="16629:16765" ph="UPDATE account... " />
-                <marker date="1515105589716" expanded="true" signature="16811:16914" ph="UPDATE Loan... " />
-                <marker date="1515105589716" expanded="true" signature="17124:17176" ph="Delete from Loan... " />
-                <marker date="1515105589716" expanded="true" signature="17475:17555" ph="Select balan... account" />
-                <marker date="1515105589716" expanded="true" signature="19002:19055" ph="SELECT * fro... customers" />
-                <marker date="1515105589716" expanded="true" signature="21626:21675" ph="SELECT * fro... newaccountrequest" />
-                <marker date="1515105589716" expanded="true" signature="22599:22650" ph="SELECT * fro... newaccountrequest" />
-                <marker date="1515105589716" expanded="true" signature="23511:23535" ph="SELECT id_lo... loan" />
-                <marker date="1515105589716" expanded="true" signature="23849:24058" ph="INSERT into loan... " />
+                <marker date="1515105875624" expanded="true" signature="2038:2108" ph="Select passw... users" />
+                <marker date="1515105875624" expanded="true" signature="2683:2779" ph="Select balan... account" />
+                <marker date="1515105875624" expanded="true" signature="2998:3057" ph="UPDATE users... " />
+                <marker date="1515105875624" expanded="true" signature="3154:3208" ph="SELECT count... users" />
+                <marker date="1515105875624" expanded="true" signature="3318:3385" ph="UPDATE users... " />
+                <marker date="1515105875624" expanded="true" signature="3875:3963" ph="Update users... " />
+                <marker date="1515105875624" expanded="true" signature="5047:5210" ph="UPDATE account... " />
+                <marker date="1515105875624" expanded="true" signature="5341:5457" ph="UPDATE account... " />
+                <marker date="1515105875624" expanded="true" signature="5504:5536" ph="SELECT id_tr... transfer" />
+                <marker date="1515105875624" expanded="true" signature="5825:5997" ph="INSERT into transfer... " />
+                <marker date="1515105875624" expanded="true" signature="6315:6393" ph="Update users... " />
+                <marker date="1515105875624" expanded="true" signature="7020:7140" ph="update account... " />
+                <marker date="1515105875624" expanded="true" signature="8374:8414" ph="SELECT id_re... newaccountrequest" />
+                <marker date="1515105875624" expanded="true" signature="8677:8953" ph="INSERT INTO newaccountrequest... " />
+                <marker date="1515105875624" expanded="true" signature="9552:9592" ph="SELECT id_re... newaccountrequest" />
+                <marker date="1515105875624" expanded="true" signature="9899:10175" ph="INSERT INTO newaccountrequest... " />
+                <marker date="1515105875624" expanded="true" signature="10720:10782" ph="Select * fro... loan" />
+                <marker date="1515105875624" expanded="true" signature="12141:12177" ph="Select id_in... investment" />
+                <marker date="1515105875624" expanded="true" signature="12404:12560" ph="INSERT INTO investment... " />
+                <marker date="1515105875624" expanded="true" signature="12593:12690" ph="UPDATE account... " />
+                <marker date="1515105875624" expanded="true" signature="13108:13217" ph="INSERT INTO users... " />
+                <marker date="1515105875624" expanded="true" signature="13262:13555" ph="INSERT INTO customers... " />
+                <marker date="1515105875624" expanded="true" signature="13399:13555" ph="SELECT pesel... newaccountrequest" />
+                <marker date="1515105875624" expanded="true" signature="13600:13791" ph="INSERT into account... " />
+                <marker date="1515105875624" expanded="true" signature="13647:13791" ph="SELECT 'miss... newaccountrequest" />
+                <marker date="1515105875624" expanded="true" signature="13836:13904" ph="Delete from newaccountrequest... " />
+                <marker date="1515105875624" expanded="true" signature="14184:14252" ph="Delete from newaccountrequest... " />
+                <marker date="1515105875624" expanded="true" signature="14705:15183" ph="UPDATE customers... " />
+                <marker date="1515105875624" expanded="true" signature="15229:15293" ph="Delete from newaccountrequest... " />
+                <marker date="1515105875624" expanded="true" signature="15586:15654" ph="Delete from newaccountrequest... " />
+                <marker date="1515105875624" expanded="true" signature="16103:16153" ph="SELECT * fro... loan" />
+                <marker date="1515105875624" expanded="true" signature="16629:16765" ph="UPDATE account... " />
+                <marker date="1515105875624" expanded="true" signature="16811:16914" ph="UPDATE Loan... " />
+                <marker date="1515105875624" expanded="true" signature="17124:17176" ph="Delete from Loan... " />
+                <marker date="1515105875624" expanded="true" signature="17475:17555" ph="Select balan... account" />
+                <marker date="1515105875624" expanded="true" signature="19002:19055" ph="SELECT * fro... customers" />
+                <marker date="1515105875624" expanded="true" signature="21626:21675" ph="SELECT * fro... newaccountrequest" />
+                <marker date="1515105875624" expanded="true" signature="22599:22650" ph="SELECT * fro... newaccountrequest" />
+                <marker date="1515105875624" expanded="true" signature="23511:23535" ph="SELECT id_lo... loan" />
+                <marker date="1515105875624" expanded="true" signature="23849:24058" ph="INSERT into loan... " />
               </folding>
             </state>
           </provider>
@@ -90,16 +90,16 @@
             <state relative-caret-position="63">
               <caret line="185" column="62" lean-forward="false" selection-start-line="185" selection-start-column="62" selection-end-line="185" selection-end-column="62" />
               <folding>
-                <marker date="1515105308949" expanded="true" signature="813:868" ph="Select * fro... newaccountrequest" />
-                <marker date="1515105308949" expanded="true" signature="1325:1372" ph="Select * fro... customers" />
-                <marker date="1515105308949" expanded="true" signature="1799:1849" ph="Select * fro... account" />
-                <marker date="1515105308949" expanded="true" signature="2323:2397" ph="Select * fro... account" />
-                <marker date="1515105308949" expanded="true" signature="2859:2918" ph="Select id_ac... account" />
-                <marker date="1515105308949" expanded="true" signature="4722:4770" ph="Select * fro... loan" />
-                <marker date="1515105308949" expanded="true" signature="5696:5751" ph="Select rate bankrate" />
-                <marker date="1515105308949" expanded="true" signature="5966:6021" ph="Select rate bankrate" />
-                <marker date="1515105308949" expanded="true" signature="6236:6291" ph="Select rate bankrate" />
-                <marker date="1515105308949" expanded="true" signature="6507:6562" ph="Select rate bankrate" />
+                <marker date="1515105875612" expanded="true" signature="813:868" ph="Select * fro... newaccountrequest" />
+                <marker date="1515105875612" expanded="true" signature="1325:1372" ph="Select * fro... customers" />
+                <marker date="1515105875612" expanded="true" signature="1799:1849" ph="Select * fro... account" />
+                <marker date="1515105875612" expanded="true" signature="2323:2397" ph="Select * fro... account" />
+                <marker date="1515105875612" expanded="true" signature="2859:2918" ph="Select id_ac... account" />
+                <marker date="1515105875612" expanded="true" signature="4722:4770" ph="Select * fro... loan" />
+                <marker date="1515105875612" expanded="true" signature="5696:5751" ph="Select rate bankrate" />
+                <marker date="1515105875612" expanded="true" signature="5966:6021" ph="Select rate bankrate" />
+                <marker date="1515105875612" expanded="true" signature="6236:6291" ph="Select rate bankrate" />
+                <marker date="1515105875612" expanded="true" signature="6507:6562" ph="Select rate bankrate" />
               </folding>
             </state>
           </provider>
@@ -468,12 +468,12 @@
       <option name="presentableId" value="Default" />
       <updated>1515072681571</updated>
       <workItem from="1515085238862" duration="5455000" />
-      <workItem from="1515103030562" duration="1767000" />
+      <workItem from="1515103030562" duration="1887000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7222000" />
+    <option name="totallyTimeSpent" value="7342000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -586,46 +586,46 @@
             <element signature="method#getRequestChangePersonalData#0;class#ComputingServerImpl#0" expanded="false" />
             <element signature="method#requestLoan#0;class#ComputingServerImpl#0" expanded="false" />
             <element signature="method#unlockAcc#0;class#ComputingServerImpl#0" expanded="false" />
-            <marker date="1515105589716" expanded="true" signature="2038:2108" ph="Select passw... users" />
-            <marker date="1515105589716" expanded="true" signature="2683:2779" ph="Select balan... account" />
-            <marker date="1515105589716" expanded="true" signature="2998:3057" ph="UPDATE users... " />
-            <marker date="1515105589716" expanded="true" signature="3154:3208" ph="SELECT count... users" />
-            <marker date="1515105589716" expanded="true" signature="3318:3385" ph="UPDATE users... " />
-            <marker date="1515105589716" expanded="true" signature="3875:3963" ph="Update users... " />
-            <marker date="1515105589716" expanded="true" signature="5047:5210" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="5341:5457" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="5504:5536" ph="SELECT id_tr... transfer" />
-            <marker date="1515105589716" expanded="true" signature="5825:5997" ph="INSERT into transfer... " />
-            <marker date="1515105589716" expanded="true" signature="6315:6393" ph="Update users... " />
-            <marker date="1515105589716" expanded="true" signature="7020:7140" ph="update account... " />
-            <marker date="1515105589716" expanded="true" signature="8374:8414" ph="SELECT id_re... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="8677:8953" ph="INSERT INTO newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="9552:9592" ph="SELECT id_re... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="9899:10175" ph="INSERT INTO newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="10720:10782" ph="Select * fro... loan" />
-            <marker date="1515105589716" expanded="true" signature="12141:12177" ph="Select id_in... investment" />
-            <marker date="1515105589716" expanded="true" signature="12404:12560" ph="INSERT INTO investment... " />
-            <marker date="1515105589716" expanded="true" signature="12593:12690" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="13108:13217" ph="INSERT INTO users... " />
-            <marker date="1515105589716" expanded="true" signature="13262:13555" ph="INSERT INTO customers... " />
-            <marker date="1515105589716" expanded="true" signature="13399:13555" ph="SELECT pesel... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="13600:13791" ph="INSERT into account... " />
-            <marker date="1515105589716" expanded="true" signature="13647:13791" ph="SELECT 'miss... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="13836:13904" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="14184:14252" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="14705:15183" ph="UPDATE customers... " />
-            <marker date="1515105589716" expanded="true" signature="15229:15293" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="15586:15654" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="16103:16153" ph="SELECT * fro... loan" />
-            <marker date="1515105589716" expanded="true" signature="16629:16765" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="16811:16914" ph="UPDATE Loan... " />
-            <marker date="1515105589716" expanded="true" signature="17124:17176" ph="Delete from Loan... " />
-            <marker date="1515105589716" expanded="true" signature="17475:17555" ph="Select balan... account" />
-            <marker date="1515105589716" expanded="true" signature="19002:19055" ph="SELECT * fro... customers" />
-            <marker date="1515105589716" expanded="true" signature="21626:21675" ph="SELECT * fro... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="22599:22650" ph="SELECT * fro... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="23511:23535" ph="SELECT id_lo... loan" />
-            <marker date="1515105589716" expanded="true" signature="23849:24058" ph="INSERT into loan... " />
+            <marker date="1515105875624" expanded="true" signature="2038:2108" ph="Select passw... users" />
+            <marker date="1515105875624" expanded="true" signature="2683:2779" ph="Select balan... account" />
+            <marker date="1515105875624" expanded="true" signature="2998:3057" ph="UPDATE users... " />
+            <marker date="1515105875624" expanded="true" signature="3154:3208" ph="SELECT count... users" />
+            <marker date="1515105875624" expanded="true" signature="3318:3385" ph="UPDATE users... " />
+            <marker date="1515105875624" expanded="true" signature="3875:3963" ph="Update users... " />
+            <marker date="1515105875624" expanded="true" signature="5047:5210" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="5341:5457" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="5504:5536" ph="SELECT id_tr... transfer" />
+            <marker date="1515105875624" expanded="true" signature="5825:5997" ph="INSERT into transfer... " />
+            <marker date="1515105875624" expanded="true" signature="6315:6393" ph="Update users... " />
+            <marker date="1515105875624" expanded="true" signature="7020:7140" ph="update account... " />
+            <marker date="1515105875624" expanded="true" signature="8374:8414" ph="SELECT id_re... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="8677:8953" ph="INSERT INTO newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="9552:9592" ph="SELECT id_re... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="9899:10175" ph="INSERT INTO newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="10720:10782" ph="Select * fro... loan" />
+            <marker date="1515105875624" expanded="true" signature="12141:12177" ph="Select id_in... investment" />
+            <marker date="1515105875624" expanded="true" signature="12404:12560" ph="INSERT INTO investment... " />
+            <marker date="1515105875624" expanded="true" signature="12593:12690" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="13108:13217" ph="INSERT INTO users... " />
+            <marker date="1515105875624" expanded="true" signature="13262:13555" ph="INSERT INTO customers... " />
+            <marker date="1515105875624" expanded="true" signature="13399:13555" ph="SELECT pesel... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="13600:13791" ph="INSERT into account... " />
+            <marker date="1515105875624" expanded="true" signature="13647:13791" ph="SELECT 'miss... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="13836:13904" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="14184:14252" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="14705:15183" ph="UPDATE customers... " />
+            <marker date="1515105875624" expanded="true" signature="15229:15293" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="15586:15654" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="16103:16153" ph="SELECT * fro... loan" />
+            <marker date="1515105875624" expanded="true" signature="16629:16765" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="16811:16914" ph="UPDATE Loan... " />
+            <marker date="1515105875624" expanded="true" signature="17124:17176" ph="Delete from Loan... " />
+            <marker date="1515105875624" expanded="true" signature="17475:17555" ph="Select balan... account" />
+            <marker date="1515105875624" expanded="true" signature="19002:19055" ph="SELECT * fro... customers" />
+            <marker date="1515105875624" expanded="true" signature="21626:21675" ph="SELECT * fro... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="22599:22650" ph="SELECT * fro... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="23511:23535" ph="SELECT id_lo... loan" />
+            <marker date="1515105875624" expanded="true" signature="23849:24058" ph="INSERT into loan... " />
           </folding>
         </state>
       </provider>
@@ -635,16 +635,16 @@
         <state relative-caret-position="4221">
           <caret line="201" column="21" lean-forward="true" selection-start-line="201" selection-start-column="21" selection-end-line="201" selection-end-column="21" />
           <folding>
-            <marker date="1515105308949" expanded="true" signature="813:868" ph="Select * fro... newaccountrequest" />
-            <marker date="1515105308949" expanded="true" signature="1325:1372" ph="Select * fro... customers" />
-            <marker date="1515105308949" expanded="true" signature="1799:1849" ph="Select * fro... account" />
-            <marker date="1515105308949" expanded="true" signature="2323:2397" ph="Select * fro... account" />
-            <marker date="1515105308949" expanded="true" signature="2859:2918" ph="Select id_ac... account" />
-            <marker date="1515105308949" expanded="true" signature="4722:4770" ph="Select * fro... loan" />
-            <marker date="1515105308949" expanded="true" signature="5696:5751" ph="Select rate bankrate" />
-            <marker date="1515105308949" expanded="true" signature="5966:6021" ph="Select rate bankrate" />
-            <marker date="1515105308949" expanded="true" signature="6236:6291" ph="Select rate bankrate" />
-            <marker date="1515105308949" expanded="true" signature="6507:6562" ph="Select rate bankrate" />
+            <marker date="1515105875612" expanded="true" signature="813:868" ph="Select * fro... newaccountrequest" />
+            <marker date="1515105875612" expanded="true" signature="1325:1372" ph="Select * fro... customers" />
+            <marker date="1515105875612" expanded="true" signature="1799:1849" ph="Select * fro... account" />
+            <marker date="1515105875612" expanded="true" signature="2323:2397" ph="Select * fro... account" />
+            <marker date="1515105875612" expanded="true" signature="2859:2918" ph="Select id_ac... account" />
+            <marker date="1515105875612" expanded="true" signature="4722:4770" ph="Select * fro... loan" />
+            <marker date="1515105875612" expanded="true" signature="5696:5751" ph="Select rate bankrate" />
+            <marker date="1515105875612" expanded="true" signature="5966:6021" ph="Select rate bankrate" />
+            <marker date="1515105875612" expanded="true" signature="6236:6291" ph="Select rate bankrate" />
+            <marker date="1515105875612" expanded="true" signature="6507:6562" ph="Select rate bankrate" />
           </folding>
         </state>
       </provider>
@@ -715,46 +715,46 @@
             <element signature="method#getRequestChangePersonalData#0;class#ComputingServerImpl#0" expanded="false" />
             <element signature="method#requestLoan#0;class#ComputingServerImpl#0" expanded="false" />
             <element signature="method#unlockAcc#0;class#ComputingServerImpl#0" expanded="false" />
-            <marker date="1515105589716" expanded="true" signature="2038:2108" ph="Select passw... users" />
-            <marker date="1515105589716" expanded="true" signature="2683:2779" ph="Select balan... account" />
-            <marker date="1515105589716" expanded="true" signature="2998:3057" ph="UPDATE users... " />
-            <marker date="1515105589716" expanded="true" signature="3154:3208" ph="SELECT count... users" />
-            <marker date="1515105589716" expanded="true" signature="3318:3385" ph="UPDATE users... " />
-            <marker date="1515105589716" expanded="true" signature="3875:3963" ph="Update users... " />
-            <marker date="1515105589716" expanded="true" signature="5047:5210" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="5341:5457" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="5504:5536" ph="SELECT id_tr... transfer" />
-            <marker date="1515105589716" expanded="true" signature="5825:5997" ph="INSERT into transfer... " />
-            <marker date="1515105589716" expanded="true" signature="6315:6393" ph="Update users... " />
-            <marker date="1515105589716" expanded="true" signature="7020:7140" ph="update account... " />
-            <marker date="1515105589716" expanded="true" signature="8374:8414" ph="SELECT id_re... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="8677:8953" ph="INSERT INTO newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="9552:9592" ph="SELECT id_re... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="9899:10175" ph="INSERT INTO newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="10720:10782" ph="Select * fro... loan" />
-            <marker date="1515105589716" expanded="true" signature="12141:12177" ph="Select id_in... investment" />
-            <marker date="1515105589716" expanded="true" signature="12404:12560" ph="INSERT INTO investment... " />
-            <marker date="1515105589716" expanded="true" signature="12593:12690" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="13108:13217" ph="INSERT INTO users... " />
-            <marker date="1515105589716" expanded="true" signature="13262:13555" ph="INSERT INTO customers... " />
-            <marker date="1515105589716" expanded="true" signature="13399:13555" ph="SELECT pesel... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="13600:13791" ph="INSERT into account... " />
-            <marker date="1515105589716" expanded="true" signature="13647:13791" ph="SELECT 'miss... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="13836:13904" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="14184:14252" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="14705:15183" ph="UPDATE customers... " />
-            <marker date="1515105589716" expanded="true" signature="15229:15293" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="15586:15654" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="16103:16153" ph="SELECT * fro... loan" />
-            <marker date="1515105589716" expanded="true" signature="16629:16765" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="16811:16914" ph="UPDATE Loan... " />
-            <marker date="1515105589716" expanded="true" signature="17124:17176" ph="Delete from Loan... " />
-            <marker date="1515105589716" expanded="true" signature="17475:17555" ph="Select balan... account" />
-            <marker date="1515105589716" expanded="true" signature="19002:19055" ph="SELECT * fro... customers" />
-            <marker date="1515105589716" expanded="true" signature="21626:21675" ph="SELECT * fro... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="22599:22650" ph="SELECT * fro... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="23511:23535" ph="SELECT id_lo... loan" />
-            <marker date="1515105589716" expanded="true" signature="23849:24058" ph="INSERT into loan... " />
+            <marker date="1515105875624" expanded="true" signature="2038:2108" ph="Select passw... users" />
+            <marker date="1515105875624" expanded="true" signature="2683:2779" ph="Select balan... account" />
+            <marker date="1515105875624" expanded="true" signature="2998:3057" ph="UPDATE users... " />
+            <marker date="1515105875624" expanded="true" signature="3154:3208" ph="SELECT count... users" />
+            <marker date="1515105875624" expanded="true" signature="3318:3385" ph="UPDATE users... " />
+            <marker date="1515105875624" expanded="true" signature="3875:3963" ph="Update users... " />
+            <marker date="1515105875624" expanded="true" signature="5047:5210" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="5341:5457" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="5504:5536" ph="SELECT id_tr... transfer" />
+            <marker date="1515105875624" expanded="true" signature="5825:5997" ph="INSERT into transfer... " />
+            <marker date="1515105875624" expanded="true" signature="6315:6393" ph="Update users... " />
+            <marker date="1515105875624" expanded="true" signature="7020:7140" ph="update account... " />
+            <marker date="1515105875624" expanded="true" signature="8374:8414" ph="SELECT id_re... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="8677:8953" ph="INSERT INTO newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="9552:9592" ph="SELECT id_re... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="9899:10175" ph="INSERT INTO newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="10720:10782" ph="Select * fro... loan" />
+            <marker date="1515105875624" expanded="true" signature="12141:12177" ph="Select id_in... investment" />
+            <marker date="1515105875624" expanded="true" signature="12404:12560" ph="INSERT INTO investment... " />
+            <marker date="1515105875624" expanded="true" signature="12593:12690" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="13108:13217" ph="INSERT INTO users... " />
+            <marker date="1515105875624" expanded="true" signature="13262:13555" ph="INSERT INTO customers... " />
+            <marker date="1515105875624" expanded="true" signature="13399:13555" ph="SELECT pesel... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="13600:13791" ph="INSERT into account... " />
+            <marker date="1515105875624" expanded="true" signature="13647:13791" ph="SELECT 'miss... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="13836:13904" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="14184:14252" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="14705:15183" ph="UPDATE customers... " />
+            <marker date="1515105875624" expanded="true" signature="15229:15293" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="15586:15654" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="16103:16153" ph="SELECT * fro... loan" />
+            <marker date="1515105875624" expanded="true" signature="16629:16765" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="16811:16914" ph="UPDATE Loan... " />
+            <marker date="1515105875624" expanded="true" signature="17124:17176" ph="Delete from Loan... " />
+            <marker date="1515105875624" expanded="true" signature="17475:17555" ph="Select balan... account" />
+            <marker date="1515105875624" expanded="true" signature="19002:19055" ph="SELECT * fro... customers" />
+            <marker date="1515105875624" expanded="true" signature="21626:21675" ph="SELECT * fro... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="22599:22650" ph="SELECT * fro... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="23511:23535" ph="SELECT id_lo... loan" />
+            <marker date="1515105875624" expanded="true" signature="23849:24058" ph="INSERT into loan... " />
           </folding>
         </state>
       </provider>
@@ -975,24 +975,24 @@
         <state relative-caret-position="63">
           <caret line="185" column="62" lean-forward="false" selection-start-line="185" selection-start-column="62" selection-end-line="185" selection-end-column="62" />
           <folding>
-            <marker date="1515105308949" expanded="true" signature="813:868" ph="Select * fro... newaccountrequest" />
-            <marker date="1515105308949" expanded="true" signature="1325:1372" ph="Select * fro... customers" />
-            <marker date="1515105308949" expanded="true" signature="1799:1849" ph="Select * fro... account" />
-            <marker date="1515105308949" expanded="true" signature="2323:2397" ph="Select * fro... account" />
-            <marker date="1515105308949" expanded="true" signature="2859:2918" ph="Select id_ac... account" />
-            <marker date="1515105308949" expanded="true" signature="4722:4770" ph="Select * fro... loan" />
-            <marker date="1515105308949" expanded="true" signature="5696:5751" ph="Select rate bankrate" />
-            <marker date="1515105308949" expanded="true" signature="5966:6021" ph="Select rate bankrate" />
-            <marker date="1515105308949" expanded="true" signature="6236:6291" ph="Select rate bankrate" />
-            <marker date="1515105308949" expanded="true" signature="6507:6562" ph="Select rate bankrate" />
+            <marker date="1515105875612" expanded="true" signature="813:868" ph="Select * fro... newaccountrequest" />
+            <marker date="1515105875612" expanded="true" signature="1325:1372" ph="Select * fro... customers" />
+            <marker date="1515105875612" expanded="true" signature="1799:1849" ph="Select * fro... account" />
+            <marker date="1515105875612" expanded="true" signature="2323:2397" ph="Select * fro... account" />
+            <marker date="1515105875612" expanded="true" signature="2859:2918" ph="Select id_ac... account" />
+            <marker date="1515105875612" expanded="true" signature="4722:4770" ph="Select * fro... loan" />
+            <marker date="1515105875612" expanded="true" signature="5696:5751" ph="Select rate bankrate" />
+            <marker date="1515105875612" expanded="true" signature="5966:6021" ph="Select rate bankrate" />
+            <marker date="1515105875612" expanded="true" signature="6236:6291" ph="Select rate bankrate" />
+            <marker date="1515105875612" expanded="true" signature="6507:6562" ph="Select rate bankrate" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ComputingServer/ComputingServerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="643" column="0" lean-forward="true" selection-start-line="643" selection-start-column="0" selection-end-line="643" selection-end-column="0" />
+        <state relative-caret-position="65">
+          <caret line="611" column="12" lean-forward="true" selection-start-line="611" selection-start-column="12" selection-end-line="611" selection-end-column="12" />
           <folding>
             <element signature="method#ComputingServerImpl#0;class#ComputingServerImpl#0" expanded="false" />
             <element signature="method#restartPassword#0;class#ComputingServerImpl#0" expanded="false" />
@@ -1015,46 +1015,46 @@
             <element signature="method#getRequestChangePersonalData#0;class#ComputingServerImpl#0" expanded="false" />
             <element signature="method#requestLoan#0;class#ComputingServerImpl#0" expanded="false" />
             <element signature="method#unlockAcc#0;class#ComputingServerImpl#0" expanded="false" />
-            <marker date="1515105589716" expanded="true" signature="2038:2108" ph="Select passw... users" />
-            <marker date="1515105589716" expanded="true" signature="2683:2779" ph="Select balan... account" />
-            <marker date="1515105589716" expanded="true" signature="2998:3057" ph="UPDATE users... " />
-            <marker date="1515105589716" expanded="true" signature="3154:3208" ph="SELECT count... users" />
-            <marker date="1515105589716" expanded="true" signature="3318:3385" ph="UPDATE users... " />
-            <marker date="1515105589716" expanded="true" signature="3875:3963" ph="Update users... " />
-            <marker date="1515105589716" expanded="true" signature="5047:5210" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="5341:5457" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="5504:5536" ph="SELECT id_tr... transfer" />
-            <marker date="1515105589716" expanded="true" signature="5825:5997" ph="INSERT into transfer... " />
-            <marker date="1515105589716" expanded="true" signature="6315:6393" ph="Update users... " />
-            <marker date="1515105589716" expanded="true" signature="7020:7140" ph="update account... " />
-            <marker date="1515105589716" expanded="true" signature="8374:8414" ph="SELECT id_re... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="8677:8953" ph="INSERT INTO newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="9552:9592" ph="SELECT id_re... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="9899:10175" ph="INSERT INTO newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="10720:10782" ph="Select * fro... loan" />
-            <marker date="1515105589716" expanded="true" signature="12141:12177" ph="Select id_in... investment" />
-            <marker date="1515105589716" expanded="true" signature="12404:12560" ph="INSERT INTO investment... " />
-            <marker date="1515105589716" expanded="true" signature="12593:12690" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="13108:13217" ph="INSERT INTO users... " />
-            <marker date="1515105589716" expanded="true" signature="13262:13555" ph="INSERT INTO customers... " />
-            <marker date="1515105589716" expanded="true" signature="13399:13555" ph="SELECT pesel... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="13600:13791" ph="INSERT into account... " />
-            <marker date="1515105589716" expanded="true" signature="13647:13791" ph="SELECT 'miss... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="13836:13904" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="14184:14252" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="14705:15183" ph="UPDATE customers... " />
-            <marker date="1515105589716" expanded="true" signature="15229:15293" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="15586:15654" ph="Delete from newaccountrequest... " />
-            <marker date="1515105589716" expanded="true" signature="16103:16153" ph="SELECT * fro... loan" />
-            <marker date="1515105589716" expanded="true" signature="16629:16765" ph="UPDATE account... " />
-            <marker date="1515105589716" expanded="true" signature="16811:16914" ph="UPDATE Loan... " />
-            <marker date="1515105589716" expanded="true" signature="17124:17176" ph="Delete from Loan... " />
-            <marker date="1515105589716" expanded="true" signature="17475:17555" ph="Select balan... account" />
-            <marker date="1515105589716" expanded="true" signature="19002:19055" ph="SELECT * fro... customers" />
-            <marker date="1515105589716" expanded="true" signature="21626:21675" ph="SELECT * fro... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="22599:22650" ph="SELECT * fro... newaccountrequest" />
-            <marker date="1515105589716" expanded="true" signature="23511:23535" ph="SELECT id_lo... loan" />
-            <marker date="1515105589716" expanded="true" signature="23849:24058" ph="INSERT into loan... " />
+            <marker date="1515105875624" expanded="true" signature="2038:2108" ph="Select passw... users" />
+            <marker date="1515105875624" expanded="true" signature="2683:2779" ph="Select balan... account" />
+            <marker date="1515105875624" expanded="true" signature="2998:3057" ph="UPDATE users... " />
+            <marker date="1515105875624" expanded="true" signature="3154:3208" ph="SELECT count... users" />
+            <marker date="1515105875624" expanded="true" signature="3318:3385" ph="UPDATE users... " />
+            <marker date="1515105875624" expanded="true" signature="3875:3963" ph="Update users... " />
+            <marker date="1515105875624" expanded="true" signature="5047:5210" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="5341:5457" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="5504:5536" ph="SELECT id_tr... transfer" />
+            <marker date="1515105875624" expanded="true" signature="5825:5997" ph="INSERT into transfer... " />
+            <marker date="1515105875624" expanded="true" signature="6315:6393" ph="Update users... " />
+            <marker date="1515105875624" expanded="true" signature="7020:7140" ph="update account... " />
+            <marker date="1515105875624" expanded="true" signature="8374:8414" ph="SELECT id_re... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="8677:8953" ph="INSERT INTO newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="9552:9592" ph="SELECT id_re... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="9899:10175" ph="INSERT INTO newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="10720:10782" ph="Select * fro... loan" />
+            <marker date="1515105875624" expanded="true" signature="12141:12177" ph="Select id_in... investment" />
+            <marker date="1515105875624" expanded="true" signature="12404:12560" ph="INSERT INTO investment... " />
+            <marker date="1515105875624" expanded="true" signature="12593:12690" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="13108:13217" ph="INSERT INTO users... " />
+            <marker date="1515105875624" expanded="true" signature="13262:13555" ph="INSERT INTO customers... " />
+            <marker date="1515105875624" expanded="true" signature="13399:13555" ph="SELECT pesel... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="13600:13791" ph="INSERT into account... " />
+            <marker date="1515105875624" expanded="true" signature="13647:13791" ph="SELECT 'miss... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="13836:13904" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="14184:14252" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="14705:15183" ph="UPDATE customers... " />
+            <marker date="1515105875624" expanded="true" signature="15229:15293" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="15586:15654" ph="Delete from newaccountrequest... " />
+            <marker date="1515105875624" expanded="true" signature="16103:16153" ph="SELECT * fro... loan" />
+            <marker date="1515105875624" expanded="true" signature="16629:16765" ph="UPDATE account... " />
+            <marker date="1515105875624" expanded="true" signature="16811:16914" ph="UPDATE Loan... " />
+            <marker date="1515105875624" expanded="true" signature="17124:17176" ph="Delete from Loan... " />
+            <marker date="1515105875624" expanded="true" signature="17475:17555" ph="Select balan... account" />
+            <marker date="1515105875624" expanded="true" signature="19002:19055" ph="SELECT * fro... customers" />
+            <marker date="1515105875624" expanded="true" signature="21626:21675" ph="SELECT * fro... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="22599:22650" ph="SELECT * fro... newaccountrequest" />
+            <marker date="1515105875624" expanded="true" signature="23511:23535" ph="SELECT id_lo... loan" />
+            <marker date="1515105875624" expanded="true" signature="23849:24058" ph="INSERT into loan... " />
           </folding>
         </state>
       </provider>
