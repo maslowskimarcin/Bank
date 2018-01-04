@@ -109,7 +109,11 @@ public class ComputingServerImpl
     public String restartPassword(String login) throws RemoteException
     {
         try {
-            statement.executeUpdate("Update users set password='" + generator.generatePassword() + "' where login='"+login+"'");
+            if(!check.checkIfCustomerExist(login)){
+            statement.executeUpdate("Update users set password='" + generator.generatePassword()+"',counter='0' where login='"+login+"'");
+            }else{
+                return "2";
+            }
         }catch (SQLException e){
             System.out.println("restartPassword sql exception");
             System.out.println(e.getMessage());
@@ -345,7 +349,7 @@ public class ComputingServerImpl
         if (data.decision.equals("y")) {
             try {
                 String logNr = generator.generateLogin();
-                statement.executeUpdate("INSERT INTO users (login,password,status) VALUES ('" + logNr + "','" + generator.generatePassword() + "','C')");
+                statement.executeUpdate("INSERT INTO users (login,password,status,counter) VALUES ('" + logNr + "','" + generator.generatePassword() + "','C','0')");
                 statement.executeUpdate("INSERT INTO customers (pesel,customer_nr,firstname,lastname,idNumber,street,email,zipcode,city,phonenumber)" +
                         " SELECT pesel,'" + logNr + "',firstname,lastname,idNumber,street,email,zipcode,city,phonenumber from newaccountrequest where id_request='" + data.id_req + "'");
                 statement.executeUpdate("INSERT into account (id_account,balance,pesel) SELECT '" + generator.generateAccNr() + "',0.00,pesel " +

@@ -42,12 +42,15 @@ public class Checker {
     /**
      * this function checks if client with given
      * pesel already exist
-     * @param pesel
+     * @param data
      * @throws Exception
      */
-    public boolean checkIfCustomerExist (String pesel){
+    public boolean checkIfCustomerExist (String data){
         try {
-            rS=statement.executeQuery("Select * from customers where pesel='"+pesel+"'");
+            if(data.length()>5)
+                rS=statement.executeQuery("Select * from customers where pesel='"+data+"'");
+            else
+                rS=statement.executeQuery("Select * from customers where customer_nr='"+data+"'");
             rS.next();
             rS.getString("firstname");
             return false;
@@ -56,6 +59,7 @@ public class Checker {
             return true;
         }
     }
+
 
     /**
      * function gets balance of client with given number
