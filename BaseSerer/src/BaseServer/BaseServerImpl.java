@@ -634,7 +634,7 @@ public class BaseServerImpl
 	}
 
 	@Override
-    public String deleteAcc(String login) throws RemoteException
+    public String deleteAcc(String login,String cust_nr) throws RemoteException
     {
 		return null;
 	}

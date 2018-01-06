@@ -212,8 +212,41 @@ public class Checker {
                 break;
             default: break;
         }
-
         return rate;
+    }
+
+    /**
+     *
+     *
+     * @param cust_nr
+     */
+    public void checkToDelete(String cust_nr) {
+
+        try {
+            statement.executeUpdate("DELETE from investment where customer_nr='" + cust_nr + "'");
+            statement.executeUpdate("DELETE  from loan where customer_nr='" + cust_nr + "'");
+
+            rS=statement.executeQuery("SELECT pesel from customers where customer_nr='"+cust_nr+"'");
+            rS.next();
+            String pesel=rS.getString("pesel");
+            statement.executeUpdate("DELETE  from newaccountrequest  where pesel='" + pesel + "'");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("checkToDelete");
+        }
+
+        try {
+            rS=statement.executeQuery("select id_account FROM transfer JOIN account on " +
+                    "transfer.accFrom=account.id_account JOIN customers ON customers.pesel=account.pesel where customer_nr='"+cust_nr+"'");
+            rS.next();
+            String account=rS.getString("id_account");
+            statement.executeUpdate("DELETE  from transfer where accFrom='" + account + "'");
+        } catch (SQLException e) {
+            System.out.println( e.getMessage());
+            System.out.println("customer does not have transactions");
+        }
+
+
     }
 
 }

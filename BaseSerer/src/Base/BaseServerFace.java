@@ -29,7 +29,7 @@ public interface BaseServerFace
     RequestListAddAccount getRequestChangePersonalData(String login) throws RemoteException; //checked
     ListLoanReq getRequestLoan(String login) throws RemoteException; //checked
     String unlockAcc (String login,String cust_nr) throws RemoteException; //ok(w)
-    String deleteAcc (String login) throws RemoteException;
+    String deleteAcc (String login,String cust_nr) throws RemoteException;
 
 
     Object LogOut(String login) throws RemoteException;

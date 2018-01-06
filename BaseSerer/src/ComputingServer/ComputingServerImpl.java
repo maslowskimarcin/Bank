@@ -627,8 +627,26 @@ public class ComputingServerImpl
     }
 
     @Override
-    public String deleteAcc(String login) throws RemoteException
+    public String deleteAcc(String login,String cust_nr) throws RemoteException
     {
+//        if(check.checkIfCustomerExist(cust_nr)){
+//            return "2"; //customer dont exist
+//        }else{
+//            try {
+//                check.checkToDelete(cust_nr);
+//                rS= statement.executeQuery("SELECT id_account from account NATURAL  JOIN  customers where customer_nr='"+cust_nr+"'");
+//                rS.next();
+//                String acc=rS.getString("id_account");
+//                statement.executeUpdate("delete from account  where id_account='"+acc+"'");
+//                statement.executeUpdate("delete from customers where customer_nr='"+cust_nr+"'");
+//                statement.executeUpdate("delete from users where login='"+cust_nr+"'");
+//            } catch (SQLException e) {
+//                System.out.println(e.getMessage());
+//                System.out.println("deleteAcc exception");
+//                return "1";
+//            }
+//        }
+//        return "0";
         return null;
     }
 
