@@ -632,6 +632,25 @@ public class ComputingServerImpl
 //        if(check.checkIfCustomerExist(cust_nr)){
 //            return "2"; //customer dont exist
 //        }else{
+//            try{
+//                rS=statement.executeQuery("SELECT id_investment from investment where customer_nr='"+cust_nr+"' and status=0");
+//                rS.next();
+//                rS.getString("id_investment");
+//                return "3";
+//            }catch(SQLException e){
+//                System.out.println("there is no active investment");
+//            }
+//
+//
+//            try{
+//                rS=statement.executeQuery("SELECT id_loan from loan where customer_nr='"+cust_nr+"' and status=0");
+//                rS.next();
+//                rS.getString("id_loan");
+//                return "4";
+//            }catch(SQLException e){
+//                System.out.println("there is no active loan");
+//            }
+
 //            try {
 //                check.checkToDelete(cust_nr);
 //                rS= statement.executeQuery("SELECT id_account from account NATURAL  JOIN  customers where customer_nr='"+cust_nr+"'");
