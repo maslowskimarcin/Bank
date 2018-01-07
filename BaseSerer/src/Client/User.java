@@ -37,7 +37,6 @@ public class User
         {
             System.out.println(e);
             e.printStackTrace();
-            //return 0;   // test
             return -1;
         }
 
@@ -78,13 +77,6 @@ public class User
         toSend.login = encrypted_login;
         toSend.password = encrypted_password;
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             received = server.logIn(login, toSend);
@@ -101,9 +93,6 @@ public class User
 
         if(received == null)
             return "-1";
-//----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
 
         if(received.error.equals("0"))
         {
@@ -122,15 +111,11 @@ public class User
 
 
         }
-        else if(received.error.equals("1"))// sht wrong
+        else if(received.error.equals("1"))
             return "-1";
-        else if(received.error.equals("2"))// banned
+        else if(received.error.equals("2"))
             return "-3";
 
-
-        //end thread
-
-        //can I return sth inside a thread or better outside??
         return "-1";
     }
 
@@ -172,9 +157,7 @@ public class User
         String encrypted_street = encrypter.encrypt(street);
         String encrypted_zipCode = encrypter.encrypt(zipCode);
 
-
-
-        //Pack and encode data
+        //Pack encoded data
         toSend.pesel = encrypted_pesel;
         toSend.city = encrypted_city;
         toSend.email = encrypted_email;
@@ -185,14 +168,6 @@ public class User
         toSend.street = encrypted_street;
         toSend.zipCode = encrypted_zipCode;
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             receivedErr = server.requestAddAccount(userId, toSend);
@@ -202,17 +177,10 @@ public class User
             return "-4";
         }
 
-        //chcek if received if null !!!
         if(receivedErr == null)
             return "-4";
-//----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
 
-        //end thread
-
-        //can I return sth inside a thread or better outside??
-        return receivedErr; // only to tests
+        return receivedErr;
     }
 
     /*
@@ -235,13 +203,6 @@ public class User
         if( !clientNo.equals(clientNoRepeat) || !checkData.checkIfOnlyNum(clientNo) || !checkData.checkIfOnlyNum(clientNo))
             return "-2";
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
            receivedErr = server.restartPassword(clientNo); // encoding clientNo
@@ -257,13 +218,7 @@ public class User
         //chcek if received if null !!!
         if(receivedErr == null)
             return "-1";
-//----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
 
-        //end thread
-
-        //can I return sth inside a thread or better outside??
         return receivedErr;
     }
 }

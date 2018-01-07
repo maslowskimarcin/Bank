@@ -27,10 +27,6 @@ public class Client
 
     }
 
-    //----------------------------------------------------------------------------------------------
-    //********************************Client's Operations*******************************************
-    //----------------------------------------------------------------------------------------------
-
     /*
     * errocode:
     * 0 everything ok
@@ -49,18 +45,9 @@ public class Client
         if (!checkData.checkPassword(newPassword))
             return "2";
 
-        //Pack and encode data
         toSend.login = userId;
         toSend.password = newPassword;
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             receivedErr = server.changePassword(toSend);
@@ -70,21 +57,10 @@ public class Client
             return "1";
         }
 
-        // testy
-        //received = "0";
-
-
-        //chcek if received if null !!!
         if(receivedErr == null)
             return "1";
-//----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
 
-        //end thread
-
-        //can I return sth inside a thread or better outside??
-        return receivedErr; // only to tests
+        return receivedErr;
     }
 
     /*
@@ -98,23 +74,15 @@ public class Client
 
         try
         {
-            received = server.getBalance(userId); //encoding userId
+            received = server.getBalance(userId);
         }
         catch (Exception e)
         {
             return "-1";
         }
 
-
-       //test
-       //received = "23.45";
-
-       //chcek if received if null !!!
        if(received == null)
            return "-1";
-
-       //decoding data
-       //TO DO
 
        if(!received.equals("-1"))
        {
@@ -143,22 +111,12 @@ public class Client
         if (!checkData.checkTransferData(accNoTo, amount, amountAfterComma, transferTitle))
             return "5";
 
-
-        //Pack and encode data
         toSend.login = userId;
         toSend.accNoFrom = accNo;
         toSend.accNoTo = accNoTo;
         toSend.amount = amount + "." + amountAfterComma;
         toSend.title = transferTitle;
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             receivedErr = server.transfer(toSend);
@@ -168,21 +126,10 @@ public class Client
             return "4";
         }
 
-        // testy
-       // received = "0";
-
-
-        //chcek if received if null !!!
         if(receivedErr == null)
             return "4";
-//----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
 
-        //end thread
-
-        //can I return sth inside a thread or better outside??
-        return receivedErr; // only to tests
+        return receivedErr;
     }
 
     /*
@@ -194,16 +141,9 @@ public class Client
     {
         PersonalData received = new PersonalData();
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
-            received = server.getPersonalData(userId); //encoding userId
+            received = server.getPersonalData(userId);
         }
         catch (Exception e)
         {
@@ -213,30 +153,10 @@ public class Client
             personalData = null;
         }
 
-        //testy
-//        PersonalData sample = new PersonalData();
-//        sample.firstName = "Janusz";
-//        sample.lastName = "Nędza";
-//        sample.street = "Jana Pawła II 13c/14";
-//        sample.zipCode = "37-450";
-//        sample.city = "Stalowa Wola";
-//        sample.pesel = "54092356981";
-//        sample.idNumber = "AZK784512";
-//        sample.email = "Janusz@gmail.com";
-//        sample.phoneNumber = "759413682";
-
-        //chcek if received if null !!!
         if(received == null)
             personalData = null;
 
-//----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
-
-        //end thread
-
-        //can I return sth inside a thread or better outside??
-        personalData = received; // zmienic na received przy laczeniu
+        personalData = received;
     }
 
     /*
@@ -259,7 +179,6 @@ public class Client
         if (!checkData.checkPersonalData(name, lastName, pesel, city, street, zipCode, idNumber, phoneNum, email))
             return "-3";
 
-        //Pack and encode data
         toSend.pesel = pesel;
         toSend.city = city;
         toSend.email = email;
@@ -270,13 +189,6 @@ public class Client
         toSend.street = street;
         toSend.zipCode = zipCode;
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             received = server.requestChangePersonalData(userId, toSend);
@@ -289,18 +201,9 @@ public class Client
             return "-1";
         }
 
-        //chcek if received if null !!!
         if(received == null)
             return "-1";
 
-        //decoding data
-        //TO DO
-
-        // interpret data
-
-        //end thread
-
-        //can I return sth inside a thread or better outside??
         return received;
     }
 
@@ -313,16 +216,6 @@ public class Client
     {
         ListInvestment received;
 
-        //Pack and encode data
-        //TO DO
-
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             received = server.getInvestmentHistory(userId);
@@ -341,10 +234,6 @@ public class Client
         if (received.error.equals("0"))
             return received.list;
 
-//----------------------------------------------------------------------------------------------
-        //end thread
-
-        //can I return sth inside a thread or better outside??
         return null;
     }
 
@@ -357,13 +246,6 @@ public class Client
     {
         Loan received;
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             received = server.getLoanHistory(userId);
@@ -381,10 +263,6 @@ public class Client
         if (received.error.equals("0"))
             return received;
 
-//----------------------------------------------------------------------------------------------
-        //end thread
-
-        //can I return sth inside a thread or better outside??
         return null;
     }
 
@@ -401,13 +279,6 @@ public class Client
         toSend.date = "1000";
         toSend.login = userId;
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             received = server.getTransferHistory(toSend);
@@ -425,10 +296,6 @@ public class Client
         if (received.error.equals("0"))
             return received.transferList;
 
-//----------------------------------------------------------------------------------------------
-        //end thread
-
-        //can I return sth inside a thread or better outside??
         return null;
     }
 
@@ -447,21 +314,12 @@ public class Client
         if(!checkData.checkCompanyName(workPlace) || !checkData.checkIfOnlyNum(salary))
             return "-2";
 
-        System.out.println(months + "miesiace");
-        //Pack and encode data
         toSend.amount = amount;
         toSend.numberOfMonths = months;
         toSend.salary = salary;
         toSend.instalment = instolment;
         toSend.login = userId;
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             received = server.requestLoan(toSend);
@@ -474,16 +332,9 @@ public class Client
             return "-1";
         }
 
-        //check if received if null !!!
         if(received == null)
             return "-1";
-//----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
 
-        //end thread
-
-        //can I return sth inside a thread or better outside??
         return received;
     }
 
@@ -518,13 +369,6 @@ public class Client
         toSend.time = time;
         toSend.login = userId;
 
-        //checking whether new thread can be created
-        //TO DO
-
-        //new thread creating
-        //TO DO
-//---------------------------------poprawne wysylanie------------------------------------------
-        //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
             received = server.requestInvestment(toSend);
@@ -541,20 +385,6 @@ public class Client
         if(received == null)
             return "-1";
 
-//----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
-
-        // interpret data
-
-        //end thread
-
-        //can I return sth inside a thread or better outside??
         return received;
     }
-
-    //----------------------------------------------------------------------------------------------
-    //**********************************************************************************************
-    //----------------------------------------------------------------------------------------------
-
 }

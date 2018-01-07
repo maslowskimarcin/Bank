@@ -21,7 +21,7 @@ public class ClientController
     private ObservableList<String> observableList;
     private List<InvestmentHistory> listInvHist;
     private List<Transfer> listTransHist;
-    private int doubleClick, currentListEl, listSize, viewLimit, listViewSize;
+    private int doubleClick, currentListEl, listSize, viewLimit, listViewSize, histInv;
     private Client client;
 
     @FXML
@@ -61,14 +61,14 @@ public class ClientController
     @FXML
     private ListView<String> listView;
     @FXML
-    private Label historyListTitle, errGetInvestmentHistory, errGetTransferHistory;
+    private Label historyListTitle, errMoreHist, errGetInvestmentHistory;
 
     @FXML
     private AnchorPane currentPane;
     @FXML
     private AnchorPane greetingPane;
     @FXML
-    private AnchorPane transferPane, endTransferPane, transferHistoryPane;
+    private AnchorPane transferPane, endTransferPane, errTransHistryPane;
     @FXML
     private AnchorPane homePane;
     @FXML
@@ -483,8 +483,9 @@ public class ClientController
     public void getInvestmentHistory()
     {
        listInvHist = client.getInvestmentHistory();
+       histInv = 1;
 
-       if(listInvHist == null)
+       if(listTransHist == null)
            errGetInvestmentHistory.setText("Nie ma danych do historii.");
        else
        {
@@ -492,19 +493,90 @@ public class ClientController
            currentPane = investmentHistoryPane;
            currentPane.setVisible(true);
 
+           errMoreHist.setText("");
            historyListTitle.setText("Historia lokat");
-           listSize = listInvHist.size();
+           listSize =  listInvHist.size();
+
+           if(listView.getItems().size() > 0)
+            listView.getItems().remove(0,currentListEl % (viewLimit + 1) + 1);
+
            currentListEl = 0;
            loadInvestmentHistory();
-
-           System.out.println(listInvHist.get(0));
        }
+    }
+
+    @FXML
+    public void getTransferHistory()
+    {
+        listTransHist = client.getTranserHistory();
+        histInv = 0;
+
+        if (listTransHist == null)
+        {
+            currentPane.setVisible(false);
+            currentPane = errTransHistryPane;
+            currentPane.setVisible(true);
+        }
+        else
+        {
+            currentPane.setVisible(false);
+            currentPane = investmentHistoryPane;
+            currentPane.setVisible(true);
+
+            errMoreHist.setText("");
+            historyListTitle.setText("Historia operacji");
+            listSize = listTransHist.size();
+
+            if(listView.getItems().size() > 0)
+                listView.getItems().remove(0,currentListEl % (viewLimit + 1) + 1);
+
+            currentListEl = 0;
+            loadTransferHistory();
+        }
+    }
+
+    @FXML
+    public void handleMoreHistory()
+    {
+        if(currentListEl < listSize)
+        {
+            listView.getItems().remove(0,currentListEl % (viewLimit + 1) + 1);
+            errMoreHist.setText("");
+
+            if(histInv == 1)
+                loadInvestmentHistory();
+            else if(histInv == 0)
+                loadTransferHistory();
+        }
+        else
+            errMoreHist.setText("To już wszystkie dane.");
+
+    }
+
+    @FXML
+    public void handleLessHistory()
+    {
+        if(currentListEl - viewLimit > 0)
+        {
+            listView.getItems().remove(0, currentListEl % (viewLimit + 1) + 2);
+            currentListEl = currentListEl -(currentListEl % (viewLimit + 1) + viewLimit + 1);
+            errMoreHist.setText("");
+
+            if(histInv == 1)
+                loadInvestmentHistory();
+            else if(histInv == 0)
+                loadTransferHistory();
+        }
+        else
+            errMoreHist.setText("Nie ma wcześniejszych danych.");
+
     }
 
     private void loadInvestmentHistory()
     {
         InvestmentHistory el;
-        String status = "-1";
+        String status = "-1", space;
+
         listViewSize = 0;
 
         listView.getItems().add("\tKwota\t\tData założenia\t\tData zamknięcia\tOprocentowanie\tKwota końcowa\tStatus");
@@ -518,10 +590,38 @@ public class ClientController
             else if (el.status.equals("0"))
                 status = "Otwarta";
 
-            listView.getItems().add("\t" + el.amount + "\t\t\t" + el.dateFrom + "\t\t" + el.dateTo + "\t\t\t" + el.rate + "\t\t\t\t" + el.finalAmount + "\t\t" + status);
+            if(el.amount.length()<5)
+                space = "\t\t\t";
+            else
+                space = "\t\t";
+
+            listView.getItems().add("\t" + el.amount + space + el.dateFrom + "\t\t" + el.dateTo + "\t\t\t" + el.rate + "\t\t\t\t" + el.finalAmount + "\t\t" + status);
             currentListEl++;
             listViewSize++;
         }
-        //listView.getItems().remove(1,currentListEl-1);
+    }
+
+    private void loadTransferHistory()
+    {
+        Transfer el;
+        String space;
+
+        listViewSize = 0;
+
+        listView.getItems().add("\tData\t\t\t\tNr konta odbiorcy\t\tNr konto nadawcy\t\tKwota\tTytuł\t");
+
+        while(listViewSize < viewLimit && currentListEl < listSize)
+        {
+            el = listTransHist.get(currentListEl);
+
+            if(el.amount.length()<5)
+                space = "\t\t\t";
+            else
+                space = "\t\t";
+
+            listView.getItems().add("\t" + el.date + "\t\t" + el.accNoTo + "\t\t\t" + el.accNoFrom + "\t\t\t" + el.amount + space + el.title);
+            currentListEl++;
+            listViewSize++;
+        }
     }
 }

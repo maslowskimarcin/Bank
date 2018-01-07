@@ -21,15 +21,15 @@ public interface BaseServerFace
     String answerLoanReq(String login,LoanDecision data) throws RemoteException; // checked
 
     String getBalance(String login) throws RemoteException; // checked
-    TransferData getTransferHistory(TransferHistory data) throws RemoteException; //ok(w)
+    TransferData getTransferHistory(TransferHistory data) throws RemoteException; //checked
     PersonalData getPersonalData(String login) throws RemoteException; //checked
     Loan getLoanHistory(String login) throws RemoteException; //checked
-    ListInvestment getInvestmentHistory(String login) throws RemoteException; //ok(w)
+    ListInvestment getInvestmentHistory(String login) throws RemoteException; //checked
     RequestListAddAccount getRequestAddAccount(String login) throws RemoteException; //checked
     RequestListAddAccount getRequestChangePersonalData(String login) throws RemoteException; //checked
     ListLoanReq getRequestLoan(String login) throws RemoteException; //checked
-    String unlockAcc (String login,String cust_nr) throws RemoteException; //ok(w)
-    String deleteAcc (String login,String cust_nr) throws RemoteException;
+    String unlockAcc (String login,String cust_nr) throws RemoteException; // git + mala poprawka
+    String deleteAcc (String login,String cust_nr) throws RemoteException; // checked
 
 
     Object LogOut(String login) throws RemoteException;

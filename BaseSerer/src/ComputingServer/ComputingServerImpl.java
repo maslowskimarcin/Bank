@@ -462,25 +462,25 @@ public class ComputingServerImpl
     public TransferData getTransferHistory(TransferHistory data) throws RemoteException
     {
 
-//        TransferData tranferData=new TransferData();
-//        tranferData.transferList=new ArrayList<>();
-//        try{
-//            rS=statement.executeQuery("select * from transfer t join account a on a.id_account=t.accFrom join customers c " +
-//                    "on c.pesel=a.pesel where c.customer_nr='"+data.login+"' and t.date>=DATE_ADD(CURDATE(),INTERVAL '" +"-" +data.date+"' DAY)");
-//
-//            while (rS.next()){
-//                tranferData.transferList.add(new Transfer(data.login,rS.getString("accFrom"),rS.getString("accTo"),
-//                        rS.getString("amount"),rS.getString("title"),rS.getString("date")));
-//
-//
-//            }
-//            tranferData.error="0";
-//        }catch (SQLException e){
-//            System.out.println(e.getMessage());
-//            tranferData.error="1";
-//        }
-//        return tranferData;
-        return null;
+        TransferData tranferData=new TransferData();
+        tranferData.transferList=new ArrayList<>();
+        try{
+            rS=statement.executeQuery("select * from transfer t join account a on a.id_account=t.accFrom join customers c " +
+                    "on c.pesel=a.pesel where c.customer_nr='"+data.login+"' and t.date>=DATE_ADD(CURDATE(),INTERVAL '" +"-" +data.date+"' DAY)");
+
+            while (rS.next()){
+                tranferData.transferList.add(new Transfer(data.login,rS.getString("accFrom"),rS.getString("accTo"),
+                        rS.getString("amount"),rS.getString("title"),rS.getString("date")));
+
+
+            }
+            tranferData.error="0";
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+            tranferData.error="1";
+        }
+        return tranferData;
+
     }
 
     @Override
@@ -619,58 +619,56 @@ public class ComputingServerImpl
     @Override
     public String unlockAcc(String login,String cust_nr) throws RemoteException
     {
-//        try {
-//            statement.executeUpdate("Update users set password='" + generator.generatePassword()+ "' where login='"+cust_nr+"'");
-//            statement.executeUpdate("UPDATE USERS set counter=0 where login='"+cust_nr+"'");
-//        } catch (SQLException e) {
-//            System.out.println(e.getMessage());
-//            return "1";
-//        }
-//        return "0";
-        return null;
+        try {
+            statement.executeUpdate("Update users set password='" + generator.generatePassword()+ "' where login='"+cust_nr+"'");
+            statement.executeUpdate("UPDATE USERS set counter=0 where login='"+cust_nr+"'");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return "1";
+        }
+        return "0";
     }
 
     @Override
     public String deleteAcc(String login,String cust_nr) throws RemoteException
     {
-//        if(check.checkIfCustomerExist(cust_nr)){
-//            return "2"; //customer dont exist
-//        }else{
-//            try{
-//                rS=statement.executeQuery("SELECT id_investment from investment where customer_nr='"+cust_nr+"' and status=0");
-//                rS.next();
-//                rS.getString("id_investment");
-//                return "3";
-//            }catch(SQLException e){
-//                System.out.println("there is no active investment");
-//            }
-//
-//
-//            try{
-//                rS=statement.executeQuery("SELECT id_loan from loan where customer_nr='"+cust_nr+"' and status=0");
-//                rS.next();
-//                rS.getString("id_loan");
-//                return "4";
-//            }catch(SQLException e){
-//                System.out.println("there is no active loan");
-//            }
+        if(check.checkIfCustomerExist(cust_nr)){
+            return "2"; //customer dont exist
+        }else{
+            try{
+                rS=statement.executeQuery("SELECT id_investment from investment where customer_nr='"+cust_nr+"' and status=0");
+                rS.next();
+                rS.getString("id_investment");
+                return "3";
+            }catch(SQLException e){
+                System.out.println("there is no active investment");
+            }
 
-//            try {
-//                check.checkToDelete(cust_nr);
-//                rS= statement.executeQuery("SELECT id_account from account NATURAL  JOIN  customers where customer_nr='"+cust_nr+"'");
-//                rS.next();
-//                String acc=rS.getString("id_account");
-//                statement.executeUpdate("delete from account  where id_account='"+acc+"'");
-//                statement.executeUpdate("delete from customers where customer_nr='"+cust_nr+"'");
-//                statement.executeUpdate("delete from users where login='"+cust_nr+"'");
-//            } catch (SQLException e) {
-//                System.out.println(e.getMessage());
-//                System.out.println("deleteAcc exception");
-//                return "1";
-//            }
-//        }
-//        return "0";
-        return null;
+
+            try{
+                rS=statement.executeQuery("SELECT id_loan from loan where customer_nr='"+cust_nr+"' and status=0");
+                rS.next();
+                rS.getString("id_loan");
+                return "4";
+            }catch(SQLException e){
+                System.out.println("there is no active loan");
+            }
+
+            try {
+                check.checkToDelete(cust_nr);
+                rS= statement.executeQuery("SELECT id_account from account NATURAL  JOIN  customers where customer_nr='"+cust_nr+"'");
+                rS.next();
+                String acc=rS.getString("id_account");
+                statement.executeUpdate("delete from account  where id_account='"+acc+"'");
+                statement.executeUpdate("delete from customers where customer_nr='"+cust_nr+"'");
+                statement.executeUpdate("delete from users where login='"+cust_nr+"'");
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+                System.out.println("deleteAcc exception");
+                return "1";
+            }
+        }
+        return "0";
     }
 
 

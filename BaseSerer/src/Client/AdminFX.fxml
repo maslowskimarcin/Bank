@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -31,52 +32,99 @@
       </AnchorPane>
       <AnchorPane layoutY="150.0" prefHeight="650.0" prefWidth="230.0" style="-fx-background-color: #AACCFF;">
          <children>
-            <VBox layoutX="28.0" layoutY="17.0" spacing="25.0">
+            <VBox layoutX="28.0" layoutY="17.0">
                <children>
-                  <Button fx:id="home" mnemonicParsing="false" prefHeight="40.0" prefWidth="175.0" text="Strona główna">
+                  <Label alignment="CENTER" prefWidth="175.0" text="Panel Główny" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Line endX="70.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Line>
+                  <Button fx:id="home" mnemonicParsing="false" prefHeight="35.0" prefWidth="175.0" text="Strona główna">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#handleGetAddAccRequests" prefHeight="50.0" prefWidth="175.0" text="Wnisoki o założenie &#10;konta" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
                   </Button>
                   <Button layoutX="10.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleGetChangePersonalDataRequests" prefHeight="50.0" prefWidth="175.0" text="Wnisoki o zmiane&#10;danych osobowych" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
                   </Button>
                   <Button layoutX="10.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleGetLoanReq" prefHeight="50.0" prefWidth="175.0" text="Wnisoki o udzielenie&#10;pożyczki" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
                   </Button>
                   <Button layoutX="10.0" layoutY="457.0" mnemonicParsing="false" onAction="#handleAddFundsPane" prefHeight="35.0" prefWidth="175.0" text="Dodaj środki" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#handleSwitchUnlckPane" prefHeight="35.0" prefWidth="175.0" text="Odblokuj konto" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#handleSwitchDeletePane" prefHeight="35.0" prefWidth="175.0" text="Zlikwiduj konto" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleChangePasswordPane" prefHeight="40.0" prefWidth="175.0" text="Zmień hasło" textAlignment="CENTER">
+                  <Label alignment="CENTER" prefWidth="175.0" text="Panel Użytkownika" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Line endX="70.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Line>
+                  <Button layoutX="10.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleChangePasswordPane" prefHeight="35.0" prefWidth="175.0" text="Zmień hasło" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleLogOut" prefHeight="40.0" prefWidth="175.0" text="Wyloguj">
+                  <Button mnemonicParsing="false" onAction="#handleLogOut" prefHeight="35.0" prefWidth="175.0" text="Wyloguj">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </Button>
                </children>
             </VBox>
@@ -348,9 +396,9 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label fx:id="errChangePass" layoutX="45.0" layoutY="392.0" prefHeight="86.0" prefWidth="496.0" textFill="RED">
+            <Label fx:id="errChangePass" alignment="TOP_LEFT" layoutX="45.0" layoutY="392.0" prefHeight="86.0" prefWidth="496.0" textFill="RED">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="45.0" layoutY="274.0" text="Po udanej próbie zmiany hasła zostaniesz automatycznie wylogowany." textFill="GREEN">
@@ -378,9 +426,9 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label fx:id="errAddFunds" layoutX="31.0" layoutY="335.0" prefHeight="86.0" prefWidth="496.0" textFill="RED">
+            <Label fx:id="errAddFunds" alignment="TOP_LEFT" layoutX="31.0" layoutY="335.0" prefHeight="86.0" prefWidth="496.0" textFill="RED">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="45.0" layoutY="97.0" text="Wprowadź dane :">

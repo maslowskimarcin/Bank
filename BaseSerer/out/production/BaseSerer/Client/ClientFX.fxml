@@ -21,7 +21,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="800.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.ClientController">
+<Pane prefHeight="800.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.ClientController">
    <children>
       <AnchorPane layoutY="150.0" prefHeight="650.0" prefWidth="230.0" style="-fx-background-color: #AACCFF;">
          <children>
@@ -53,7 +53,7 @@
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="170.0" text="Historia opercji">
+                  <Button mnemonicParsing="false" onAction="#getTransferHistory" prefHeight="45.0" prefWidth="170.0" text="Historia opercji">
                      <font>
                         <Font name="Calibri" size="18.0" />
                      </font>
@@ -946,22 +946,22 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: E6F0FF;" text="0,5 %" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: E6F0FF;" text="1 %" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: E6F0FF;" text="1,5 %" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: E6F0FF;" text="3 %" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: D0E3FF;" text="1,0 %" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: D0E3FF;" text="2 %" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: D0E3FF;" text="2,0 %" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: D0E3FF;" text="4 %" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -1155,16 +1155,40 @@
             </Label>
             <Line endX="550.0" layoutX="190.0" layoutY="93.0" startX="-100.0" stroke="#0044aa" strokeWidth="3.0" />
             <ListView fx:id="listView" fixedCellSize="30.0" focusTraversable="false" layoutX="115.0" layoutY="121.0" prefHeight="340.0" prefWidth="600.0" />
-            <Button layoutX="248.0" layoutY="486.0" mnemonicParsing="false" prefWidth="110.0" text="Poprzednie">
+            <Button layoutX="248.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleLessHistory" prefWidth="110.0" text="Poprzednie">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="472.0" layoutY="486.0" mnemonicParsing="false" prefWidth="110.0" text="Następne">
+            <Button layoutX="472.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleMoreHistory" prefWidth="110.0" text="Następne">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
+            <Label fx:id="errMoreHist" alignment="CENTER" layoutX="240.0" layoutY="550.0" prefWidth="350.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="errTransHistryPane" accessibleRole="NODE" layoutX="230.0" layoutY="150.0" prefHeight="650.0" prefWidth="830.0" visible="false">
+         <children>
+            <ImageView fitHeight="650.0" fitWidth="830.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@backgroundSmaller.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="219.0" fitWidth="238.0" layoutX="309.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@pkLogo02.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="201.0" layoutY="334.0" text="Niestety w tej chwili nie możliwe jest pobranie &#10;historii operacji. Spróbuj ponownie za chwilę." textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

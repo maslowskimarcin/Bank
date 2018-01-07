@@ -476,7 +476,35 @@ public class BaseServerImpl
 	@Override
 	public TransferData getTransferHistory(TransferHistory data) throws RemoteException
 	{
-		return null;
+		TransferData temporary;
+		while(true)
+		{
+			if(serverState_1.get())
+			{
+				synchronized (computingSever_1)
+				{
+					serverState_1.set(false);
+					temporary = computingSever_1.getTransferHistory(data);
+					serverState_1.set(true);
+				}
+
+				break;
+			}
+			else if(serverState_2.get())
+			{
+				synchronized (computingSever_2)
+				{
+					serverState_2.set(false);
+					temporary = computingSever_2.getTransferHistory(data);
+					serverState_2.set(true);
+				}
+				break;
+			}
+		}
+
+		logServer.AddMessageToLog("RequestListAddAccount", data.login, temporary);
+
+		return temporary;
 	}
 
 	@Override
@@ -686,13 +714,69 @@ public class BaseServerImpl
 	@Override
 	public String unlockAcc(String login,String cust_nr) throws RemoteException
 	{
-		return null;
+		String temporary;
+		while(true)
+		{
+			if(serverState_1.get())
+			{
+				synchronized (computingSever_1)
+				{
+					serverState_1.set(false);
+					temporary = computingSever_1.unlockAcc(login, cust_nr);
+					serverState_1.set(true);
+				}
+
+				break;
+			}
+			else if(serverState_2.get())
+			{
+				synchronized (computingSever_2)
+				{
+					serverState_2.set(false);
+					temporary = computingSever_2.unlockAcc(login, cust_nr);
+					serverState_2.set(true);
+				}
+
+				break;
+			}
+		}
+		logServer.AddMessageToLog("requestLoan", login, cust_nr);
+
+		return temporary;
 	}
 
 	@Override
     public String deleteAcc(String login,String cust_nr) throws RemoteException
     {
-		return null;
+		String temporary;
+		while(true)
+		{
+			if(serverState_1.get())
+			{
+				synchronized (computingSever_1)
+				{
+					serverState_1.set(false);
+					temporary = computingSever_1.deleteAcc(login, cust_nr);
+					serverState_1.set(true);
+				}
+
+				break;
+			}
+			else if(serverState_2.get())
+			{
+				synchronized (computingSever_2)
+				{
+					serverState_2.set(false);
+					temporary = computingSever_2.deleteAcc(login, cust_nr);
+					serverState_2.set(true);
+				}
+
+				break;
+			}
+		}
+		logServer.AddMessageToLog("requestLoan", login, cust_nr);
+
+		return temporary;
 	}
 
 	@Override
