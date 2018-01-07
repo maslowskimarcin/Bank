@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Slider?>
@@ -714,7 +715,7 @@
                   <Image url="@backgroundSmaller.png" />
                </image>
             </ImageView>
-            <Button layoutX="454.0" layoutY="457.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="247.0" text="Przegłądaj historie kredytów" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="454.0" layoutY="457.0" mnemonicParsing="false" onAction="#handleLoanHistoryPane" prefHeight="78.0" prefWidth="247.0" text="Przegłądaj historie kredytów" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -734,6 +735,11 @@
                   <Image url="@pkLogo02.png" />
                </image>
             </ImageView>
+            <Label fx:id="errGetLH" alignment="CENTER" layoutX="425.0" layoutY="556.0" prefHeight="27.0" prefWidth="305.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="loanReqPane" layoutX="230.0" layoutY="150.0" prefHeight="650.0" prefWidth="830.0" visible="false">
@@ -862,7 +868,7 @@
                   <Image url="@backgroundSmaller.png" />
                </image>
             </ImageView>
-            <Button layoutX="455.0" layoutY="455.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="247.0" text="Przegłądaj historie lokat" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="455.0" layoutY="455.0" mnemonicParsing="false" onAction="#getInvestmentHistory" prefHeight="78.0" prefWidth="247.0" text="Przeglądaj historie lokat" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -882,6 +888,11 @@
                   <Image url="@pkLogo02.png" />
                </image>
             </ImageView>
+            <Label fx:id="errGetInvestmentHistory" alignment="CENTER" layoutX="429.0" layoutY="558.0" prefWidth="300.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="getInvestmentPane" layoutX="230.0" layoutY="150.0" prefHeight="650.0" prefWidth="830.0" visible="false">
@@ -1050,6 +1061,110 @@
                   <Font size="24.0" />
                </font>
             </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="loanHistoryPane" layoutX="230.0" layoutY="150.0" prefHeight="650.0" prefWidth="830.0" visible="false">
+         <children>
+            <ImageView fitHeight="650.0" fitWidth="830.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@backgroundSmaller.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="311.0" layoutY="58.0" text="Aktywna Pożyczka">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Line endX="550.0" layoutX="190.0" layoutY="93.0" startX="-100.0" stroke="#0044aa" strokeWidth="2.0" />
+            <VBox layoutX="121.0" layoutY="147.0" prefHeight="235.0" prefWidth="250.0" spacing="25.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefWidth="250.0" text="Wysokość pożyczki :">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="250.0" text="Miesięczna rata :">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="250.0" text="Oprocentowanie :">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="250.0" text="Data zaciągnięcia pożyczki :">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="250.0" text="Przewidziana data spłaty :">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Label layoutX="57.0" layoutY="441.0" text="Przewidywana data spłaty może ulec zmienie w wyniku nie terminowego&#10;opłacania rat. Z racji, że każdy bank powinien rozumieć swoich klientów, wiemy, że czasem&#10;można zopmnieć o zapłacie raty, dletgo w naszym banku nie zapłacona rata po prostu&#10;jest doliczna do nasjtępnej bez żadnych konsekwencji i bez żadnych dodatkowych opłat.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <VBox layoutX="415.0" layoutY="147.0" spacing="25.0">
+               <children>
+                  <Label fx:id="amountLH" prefWidth="150.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="instalmentLH" prefWidth="150.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="rateLH" prefWidth="150.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dateLH" prefWidth="150.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dateToLH" prefWidth="150.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="investmentHistoryPane" accessibleRole="NODE" layoutX="230.0" layoutY="150.0" prefHeight="650.0" prefWidth="830.0" visible="false">
+         <children>
+            <ImageView fitHeight="650.0" fitWidth="830.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@backgroundSmaller.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="historyListTitle" alignment="CENTER" layoutX="290.0" layoutY="58.0" prefWidth="250.0" text="Historia operacji">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Line endX="550.0" layoutX="190.0" layoutY="93.0" startX="-100.0" stroke="#0044aa" strokeWidth="3.0" />
+            <ListView fx:id="listView" fixedCellSize="30.0" focusTraversable="false" layoutX="115.0" layoutY="121.0" prefHeight="340.0" prefWidth="600.0" />
+            <Button layoutX="248.0" layoutY="486.0" mnemonicParsing="false" prefWidth="110.0" text="Poprzednie">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="472.0" layoutY="486.0" mnemonicParsing="false" prefWidth="110.0" text="Następne">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

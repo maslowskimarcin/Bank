@@ -1,6 +1,10 @@
 package Client;
 
-import Base.PersonalData;
+import Base.InvestmentHistory;
+import Base.Loan;
+import Base.Transfer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,10 +14,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ClientController
 {
-    private int doubleClick;
+    private ObservableList<String> observableList;
+    private List<InvestmentHistory> listInvHist;
+    private List<Transfer> listTransHist;
+    private int doubleClick, currentListEl, listSize, viewLimit, listViewSize;
     private Client client;
 
     @FXML
@@ -48,13 +56,19 @@ public class ClientController
     private TextField amountInv, amountAfterCommaInv;
     @FXML
     private RadioButton investmentOp1, investmentOp2, investmentOp3, investmentOp4;
+    @FXML
+    private Label amountLH, instalmentLH, rateLH, dateLH, dateToLH, errGetLH;
+    @FXML
+    private ListView<String> listView;
+    @FXML
+    private Label historyListTitle, errGetInvestmentHistory, errGetTransferHistory;
 
     @FXML
     private AnchorPane currentPane;
     @FXML
     private AnchorPane greetingPane;
     @FXML
-    private AnchorPane transferPane, endTransferPane;
+    private AnchorPane transferPane, endTransferPane, transferHistoryPane;
     @FXML
     private AnchorPane homePane;
     @FXML
@@ -62,7 +76,7 @@ public class ClientController
     @FXML
     private AnchorPane personaDataPane, personaDataEditPane, personaDataEndPane;
     @FXML
-    private AnchorPane loanPane, loanReqPane, loanReqEndPane, loanHostoryPane;
+    private AnchorPane loanPane, loanReqPane, loanReqEndPane, loanHistoryPane;
     @FXML
     private AnchorPane investmentPane, getInvestmentPane, getInvestmentEndPane, investmentHistoryPane;
 
@@ -70,6 +84,9 @@ public class ClientController
     public void setControllerClient(Client client){
         this.client = client;
         currentPane = greetingPane;
+        observableList = FXCollections.observableArrayList();
+        listView.setItems(observableList);
+        viewLimit = 5;
     }
 
     @FXML
@@ -176,7 +193,7 @@ public class ClientController
      }
 
      @FXML
-     public void handleChangePass() throws IOException
+    public void handleChangePass() throws IOException
      {
          String errorCode;
         if(doubleClick == 1)
@@ -310,14 +327,31 @@ public class ClientController
         currentPane.setVisible(false);
         currentPane = loanPane;
         currentPane.setVisible(true);
+
+        errGetLH.setText("");
     }
 
     @FXML
     public void handleLoanHistoryPane()
     {
-        currentPane.setVisible(false);
-        currentPane = loanHostoryPane;
-        currentPane.setVisible(true);
+        Loan loan;
+
+        loan = client.getLoanHistory();
+
+        if(loan == null)
+            errGetLH.setText("Nie posiadasz żadnych pożyczek.");
+        else
+        {
+            currentPane.setVisible(false);
+            currentPane = loanHistoryPane;
+            currentPane.setVisible(true);
+
+            amountLH.setText(loan.amount);
+            instalmentLH.setText(loan.instalment);
+            rateLH.setText(loan.bankRate);
+            dateLH.setText(loan.date);
+            dateToLH.setText(loan.dateTo);
+        }
     }
 
     @FXML
@@ -384,6 +418,8 @@ public class ClientController
         currentPane.setVisible(false);
         currentPane = investmentPane;
         currentPane.setVisible(true);
+
+        errGetInvestmentHistory.setText("");
     }
 
     @FXML
@@ -394,6 +430,8 @@ public class ClientController
         currentPane.setVisible(true);
 
         errGetInvestment.setText("");
+        amountInv.setText("");
+        amountAfterCommaInv.setText("");
         doubleClick = 0;
     }
 
@@ -441,5 +479,49 @@ public class ClientController
         }
     }
 
+    @FXML
+    public void getInvestmentHistory()
+    {
+       listInvHist = client.getInvestmentHistory();
 
+       if(listInvHist == null)
+           errGetInvestmentHistory.setText("Nie ma danych do historii.");
+       else
+       {
+           currentPane.setVisible(false);
+           currentPane = investmentHistoryPane;
+           currentPane.setVisible(true);
+
+           historyListTitle.setText("Historia lokat");
+           listSize = listInvHist.size();
+           currentListEl = 0;
+           loadInvestmentHistory();
+
+           System.out.println(listInvHist.get(0));
+       }
+    }
+
+    private void loadInvestmentHistory()
+    {
+        InvestmentHistory el;
+        String status = "-1";
+        listViewSize = 0;
+
+        listView.getItems().add("\tKwota\t\tData założenia\t\tData zamknięcia\tOprocentowanie\tKwota końcowa\tStatus");
+
+        while(listViewSize < viewLimit && currentListEl < listSize)
+        {
+            el = listInvHist.get(currentListEl);
+
+            if(el.status.equals("1"))
+                status = "Zamknięta";
+            else if (el.status.equals("0"))
+                status = "Otwarta";
+
+            listView.getItems().add("\t" + el.amount + "\t\t\t" + el.dateFrom + "\t\t" + el.dateTo + "\t\t\t" + el.rate + "\t\t\t\t" + el.finalAmount + "\t\t" + status);
+            currentListEl++;
+            listViewSize++;
+        }
+        //listView.getItems().remove(1,currentListEl-1);
+    }
 }

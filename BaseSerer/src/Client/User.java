@@ -223,7 +223,7 @@ public class User
     * 1 sht wrong with data base
     * 2 no such client
     * */
-    public String resetPass(String clientNo, String name, String lastName)
+    public String resetPass(String clientNo, String clientNoRepeat)
     {
         String receivedErr;
 
@@ -232,7 +232,7 @@ public class User
             return "-1";
 
         //check whether data is correct
-        if(!checkData.checkIfOnlyNum(clientNo) || !checkData.checkIfOnlyChars(name) || !checkData.checkIfOnlyChars(lastName))
+        if( !clientNo.equals(clientNoRepeat) || !checkData.checkIfOnlyNum(clientNo) || !checkData.checkIfOnlyNum(clientNo))
             return "-2";
 
         //checking whether new thread can be created

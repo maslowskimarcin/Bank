@@ -17,7 +17,7 @@ public class ResetPassController
     @FXML
     private Label frontText, errorText;
     @FXML
-    private TextField name, lastName, clientNo;
+    private TextField clientNo, clientNoRepeat;
 
     @FXML
     private AnchorPane getDataResetPane, resetEndPane;
@@ -43,10 +43,10 @@ public class ResetPassController
     @FXML
     public void handleResetPass() throws  IOException
     {
-        String error = user.resetPass(clientNo.getText(), name.getText(), lastName.getText());
+        String error = user.resetPass(clientNo.getText(), clientNoRepeat.getText());
 
         if (error.equals("-2"))
-            errorText.setText("Wprowadzono nieprawidłowe dane.");
+            errorText.setText("Wprowadzono niepoprawny numer kienta lub żle powtórzono numer.");
         else if (error.equals("-1"))
             errorText.setText("Nie można połaczyc sie z serwerem!");
         else if (error.equals("0"))

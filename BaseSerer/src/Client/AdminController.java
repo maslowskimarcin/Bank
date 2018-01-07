@@ -22,19 +22,21 @@ public class AdminController
 
     @FXML
     private Button home;
-    @FXML
-    private Label reqAmountLab, errGetPersonalDataReg, errAddFunds;
-    @FXML
+    @FXML // other
+    private Label reqAmountLab, errGetPersonalDataReg, errAddFunds, errChangePass, errUnoclkAcc, errDeleteAcc;
+    @FXML // addFunds
     private TextField addFundsLogin, addFundsAmount, addFundsAmountAfterComma;
-    @FXML
+    @FXML // addAcc and changePersonalData
     private Label personalDataReqTitle, idReq, nameAndLastName, pesel, idNumber, street, city, zipCode, email, phoneNumber, switchReq, errPersonalData;
-    @FXML
+    @FXML //changePass
     private PasswordField newPassword, newPasswordRepeat;
-    @FXML
-    private Label errChangePass;
-    @FXML
+    @FXML // unlockAcc
+    private TextField clientNoUnlock, repeatCliNoUnlock;
+    @FXML // deleteAcc
+    private TextField clientNoDel, repeatCliNoDel;
+    @FXML // loan personalData
     private Label idReqLoan, nameAndLastNameLoan, peselLoan, idNumberLoan, streetLoan, cityLoan, zipCodeLoan, emailLoan, phoneNumberLoan, switchReqLoan, reqAmountLoan, errGetLoanReq, errSendLoanDecision;
-    @FXML
+    @FXML // loan data
     private Label amountLoan, monthsLoan, salaryLoan, rateLoan, instolmentLoan;
 
 
@@ -59,6 +61,8 @@ public class AdminController
     private AnchorPane addFundsPane;
     @FXML
     private AnchorPane loanReqPane, viewLoanReqPane;
+    @FXML
+    private AnchorPane unlockPane, deletePane;
 
 
     public void setControllerAdmin(Admin admin)
@@ -506,7 +510,7 @@ public class AdminController
         }
     }
 
-    public void decideLoanReq(String decision)
+    private void decideLoanReq(String decision)
     {
         String er;
 
@@ -554,5 +558,99 @@ public class AdminController
 
         }
 
+    }
+
+    @FXML
+    public void handleSwitchUnlckPane()
+    {
+        currentPane.setVisible(false);
+        currentPane = unlockPane;
+        currentPane.setVisible(true);
+
+        clientNoUnlock.setText("");
+        repeatCliNoUnlock.setText("");
+        doubleClicks0 = 0;
+    }
+
+    @FXML
+    public void handleSwitchDeletePane()
+    {
+        currentPane.setVisible(false);
+        currentPane = deletePane;
+        currentPane.setVisible(true);
+
+        clientNoDel.setText("");
+        repeatCliNoDel.setText("");
+        doubleClicks0 = 0;
+    }
+
+    @FXML
+    public void handleUnlockAcc()
+    {
+        String err;
+
+        if(doubleClicks0 == 1)
+        {
+            doubleClicks0 = 0;
+
+            err = admin.unlockAcc(clientNoUnlock.getText(), repeatCliNoUnlock.getText());
+
+            if (err.equals("-2"))
+                errUnoclkAcc.setText("Wprowadzone dane są nie poprawne. Upewnij się, że:\n1. Podany numer klienta nie zawieria innych znaków niż cyfry.\n2. Poprawnie powtórzono numer klienta.");
+            else if (err.equals("-1"))
+                errUnoclkAcc.setText("Wystąpił problem z serwerem, spróboj ponownie za chwile.");
+            else if (err.equals("0"))
+            {
+                clientNoUnlock.setText("");
+                repeatCliNoUnlock.setText("");
+                errUnoclkAcc.setText("Konto zostało pomyślnie odblokowane.");
+            }
+            else if (err.equals("1"))
+                errUnoclkAcc.setText("Wystąpił problem z bazą danych, spróboj ponownie za chwile.");
+            else if (err.equals("2"))
+                errUnoclkAcc.setText("Podany numer klienta nie istnieje.");
+        }
+        else
+        {
+            doubleClicks0++;
+            errUnoclkAcc.setText("Kliknij ponownie aby potwierdzić wybór.");
+        }
+    }
+
+    @FXML
+    public void handleDeleteAcc()
+    {
+        String err;
+
+        if(doubleClicks0 == 1)
+        {
+            doubleClicks0 = 0;
+
+            err = admin.deleteAcc(clientNoDel.getText(), repeatCliNoDel.getText());
+
+            if (err.equals("-2"))
+                errDeleteAcc.setText("Wprowadzone dane są nie poprawne. Upewnij się, że:\n1. Podany numer klienta nie zawieria innych znaków niż cyfry.\n2. Poprawnie powtórzono numer klienta.");
+            else if (err.equals("-1"))
+                errDeleteAcc.setText("Wystąpił problem z serwerem, spróboj ponownie za chwile.");
+            else if (err.equals("0"))
+            {
+                clientNoDel.setText("");
+                repeatCliNoDel.setText("");
+                errDeleteAcc.setText("Konto zostało z powodzeniem usunięte.");
+            }
+            else if (err.equals("1"))
+                errDeleteAcc.setText("Wystąpił problem z bazą danych, spróboj ponownie za chwile.");
+            else if (err.equals("2"))
+                errDeleteAcc.setText("Podany numer klienta nie istnieje.");
+            else if (err.equals("3"))
+                errDeleteAcc.setText("Klient o podanym numerze posiada aktywną lokate,\njego konto nie może zostać usunięte.");
+            else if (err.equals("4"))
+                errDeleteAcc.setText("Klient o podanym numerze posiada niespłaconą pożyczkę,\njego konto nie może zostać usunięte.");
+        }
+        else
+        {
+            doubleClicks0++;
+            errDeleteAcc.setText("Kliknij ponownie aby potwierdzić wybór.");
+        }
     }
 }

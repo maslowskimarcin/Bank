@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.ResetPassController">
+<AnchorPane prefHeight="800.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.ResetPassController">
    <children>
       <AnchorPane fx:id="getDataResetPane" layoutY="75.0" prefHeight="725.0" prefWidth="1060.0">
          <children>
@@ -23,19 +23,14 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <VBox layoutX="210.0" layoutY="262.0" spacing="25.0">
+            <VBox layoutX="283.0" layoutY="262.0" spacing="25.0">
                <children>
                   <TextField fx:id="clientNo">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="name">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="lastName">
+                  <TextField fx:id="clientNoRepeat">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -47,24 +42,19 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button layoutX="765.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleGetBack" text="Powrót do logowania">
+            <Button layoutX="768.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleGetBack" text="Powrót do logowania">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <VBox layoutX="92.0" layoutY="262.0" prefHeight="84.0" prefWidth="100.0" spacing="40.0">
+            <VBox layoutX="32.0" layoutY="262.0" prefHeight="100.0" prefWidth="220.0" spacing="40.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Nr klienta :">
+                  <Label alignment="CENTER_RIGHT" prefWidth="220.0" text="Nr klienta :">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Imię :">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Nazwisko :">
+                  <Label alignment="CENTER_RIGHT" prefWidth="220.0" text="Powtórz nr klienta :">
                      <font>
                         <Font size="20.0" />
                      </font>

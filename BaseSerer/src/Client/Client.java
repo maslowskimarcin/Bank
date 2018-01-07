@@ -2,6 +2,8 @@ package Client;
 
 import Base.*;
 
+import java.util.List;
+
 public class Client
 {
 
@@ -30,12 +32,12 @@ public class Client
     //----------------------------------------------------------------------------------------------
 
     /*
-* errocode:
-* 0 everything ok
-* 1 sth wrong with base server
-* 2 unsuitable data in field
-* 3 not equal password and repeated password
-* */
+    * errocode:
+    * 0 everything ok
+    * 1 sth wrong with base server
+    * 2 unsuitable data in field
+    * 3 not equal password and repeated password
+    * */
     public String changePassword( String newPassword, String newPasswordRepeat)
     {
         LogTo toSend = new LogTo();
@@ -184,10 +186,10 @@ public class Client
     }
 
     /*
-* erroCode:
-* PersonalData object   ok
-* null   sth wrong with server
-* */
+    * erroCode:
+    * PersonalData object   ok
+    * null   sth wrong with server
+    * */
     public void getPersonalData()
     {
         PersonalData received = new PersonalData();
@@ -238,13 +240,13 @@ public class Client
     }
 
     /*
-* erroCode:
-* 1 sth wrong with data base
-* 0 ok
-* -1 sth wrong with base server
-* -2 email != emailRepeated
-* -3 unsuitable data in fields
-* */
+    * erroCode:
+    * 1 sth wrong with data base
+    * 0 ok
+    * -1 sth wrong with base server
+    * -2 email != emailRepeated
+    * -3 unsuitable data in fields
+    * */
     public String changePersonalData(String name, String lastName, String pesel, String city, String street, String zipCode, String idNumber, String phoneNum, String email, String emailRepeated)
     {
 
@@ -303,13 +305,13 @@ public class Client
     }
 
     /*
-* erroCode:
-* */
-    public int getInvestmentHistory()
+    * erroCode:
+    * er 0 ok, return Loan object
+    * er 1 sth wrong with database, return null
+    * */
+    public List<InvestmentHistory> getInvestmentHistory()
     {
-        int errorCode = -1;
-        LogTo toSend = new LogTo();
-        LogFrom received;
+        ListInvestment received;
 
         //Pack and encode data
         //TO DO
@@ -323,41 +325,37 @@ public class Client
         //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
-
+            received = server.getInvestmentHistory(userId);
         }
         catch (Exception e)
         {
 
             System.out.println("Error: " + e);
             e.printStackTrace();
-            return -1;
+            return null;
         }
-        //chcek if received if null !!!
+
+        if (received == null)
+            return null;
+
+        if (received.error.equals("0"))
+            return received.list;
 
 //----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
-
-        // interpret data
-
         //end thread
 
         //can I return sth inside a thread or better outside??
-        return errorCode;
+        return null;
     }
 
     /*
-* erroCode:
-* */
-    public int getLoanHistory()
+    * erroCode:
+    * er 0 ok, return Loan object
+    * er 1 sth wrong with database, return null
+    * */
+    public Loan getLoanHistory()
     {
-        int errorCode = -1;
-        LogTo toSend = new LogTo();
-        LogFrom received;
-
-
-        //Pack and encode data
-        //TO DO
+        Loan received;
 
         //checking whether new thread can be created
         //TO DO
@@ -368,40 +366,40 @@ public class Client
         //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
-
+            received = server.getLoanHistory(userId);
         }
         catch (Exception e)
         {
-
             System.out.println("Error: " + e);
             e.printStackTrace();
-            return -1;
+            return null;
         }
-        //chcek if received if null !!!
+
+        if (received == null)
+            return null;
+
+        if (received.error.equals("0"))
+            return received;
 
 //----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
-
-        // interpret data
-
         //end thread
 
         //can I return sth inside a thread or better outside??
-        return errorCode;
+        return null;
     }
 
     /*
-* erroCode:
-* */
-    public int getTranserHistory()
+    * erroCode:
+    * er 0 ok, return Loan object
+    * er 1 sth wrong with database, return null
+    * */
+    public List<Transfer> getTranserHistory()
     {
-        int errorCode = -1;
-        LogTo toSend = new LogTo();
-        LogFrom received;
+        TransferHistory toSend = new TransferHistory();
+        TransferData received;
 
-        //Pack and encode data
-        //TO DO
+        toSend.date = "1000";
+        toSend.login = userId;
 
         //checking whether new thread can be created
         //TO DO
@@ -412,36 +410,35 @@ public class Client
         //sending and receiving data to/from main server, interpreting received data all in thread
         try
         {
-
+            received = server.getTransferHistory(toSend);
         }
         catch (Exception e)
         {
-
             System.out.println("Error: " + e);
             e.printStackTrace();
-            return -1;
+            return null;
         }
-        //chcek if received if null !!!
+
+        if (received == null)
+            return null;
+
+        if (received.error.equals("0"))
+            return received.transferList;
 
 //----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
-
-        // interpret data
-
         //end thread
 
         //can I return sth inside a thread or better outside??
-        return errorCode;
+        return null;
     }
 
     /*
-* erroCode:
-* -2 wrong data
-* -1 sth worn with server
-* 0 ok
-* 1 sth wrong with database
-* */
+    * erroCode:
+    * -2 wrong data
+    * -1 sth worn with server
+    * 0 ok
+    * 1 sth wrong with database
+    * */
     public String sendReqLoan(String amount, String months, String workPlace, String salary, String instolment)
     {
         Loan toSend = new Loan();
@@ -508,7 +505,7 @@ public class Client
 
         System.out.println("time = " + time);
 
-        if(!checkData.checkIfOnlyNum(amount) || !checkData.checkIfOnlyNum(amountAfterComma) || time.equals("0"))
+        if(amountAfterComma.length() != 2 || !checkData.checkIfOnlyNum(amount) || !checkData.checkIfOnlyNum(amountAfterComma) || time.equals("0"))
             return "-2";
 
 

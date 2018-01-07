@@ -111,6 +111,12 @@ public class ComputingServerImpl
         try {
             if(!check.checkIfCustomerExist(login)){
             statement.executeUpdate("Update users set password='" + generator.generatePassword()+"',counter='0' where login='"+login+"'");
+
+//                MailSend newMail = new MailSend();
+//                String RECIPIENT = "ngawor96@gmail.com";
+//                String[] to = { RECIPIENT };
+//                newMail.sendFromGMail(to, "BankPK", "jhdsfcbdi");
+
             }else{
                 return "2";
             }
@@ -499,44 +505,42 @@ public class ComputingServerImpl
     @Override
     public Loan getLoanHistory(String login) throws RemoteException
     {
-//        Loan loan;
-//        try {
-//            rS=statement.executeQuery("SELECT * from loan where customer_nr='"+login+"' and status=1");
-//            rS.next();
-//            loan=new Loan(login, rS.getString("amount"),rS.getString("instalment"),rS.getString("numberOfMonths"),
-//                    rS.getString("bankRate"),rS.getString("salary"),rS.getString("date"),rS.getString("dateTo"),
-//                    "0");
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            loan=new Loan();
-//            loan.error="1";
-//        }
-//        return loan;
-        return null;
+        Loan loan;
+        try {
+            rS=statement.executeQuery("SELECT * from loan where customer_nr='"+login+"' and status=1");
+            rS.next();
+            loan=new Loan(login, rS.getString("amount"),rS.getString("instalment"),rS.getString("numberOfMonths"),
+                    rS.getString("bankRate"),rS.getString("salary"),rS.getString("date"),rS.getString("dateTo"),
+                    "0");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            loan=new Loan();
+            loan.error="1";
+        }
+        return loan;
     }
 
     @Override
     public ListInvestment getInvestmentHistory(String login) throws RemoteException
     {
-//        ListInvestment listInvestment=new ListInvestment();
-//        listInvestment.list= new ArrayList<>();
-//        try {
-//            rS=statement.executeQuery("Select rate from bankRate natural join investment where customer_nr='"+login+"'");
-//            rS.next();
-//            String rate=rS.getString("rate");
-//
-//            rS=statement.executeQuery("SELECT * from investment where customer_nr='"+login+"'");
-//            while(rS.next())
-//                listInvestment.list.add(new InvestmentHistory(rS.getString("amount"),rS.getString("dateFrom"),
-//                        rS.getString("dateTo"),rate,rS.getString("status"),rS.getString("finalAmount")));
-//            listInvestment.error="0";
-//        } catch (SQLException e) {
-//            System.out.println(e.getMessage());
-//            listInvestment.error="1";
-//        }
-//        return listInvestment;
-        return null;
+        ListInvestment listInvestment=new ListInvestment();
+        listInvestment.list= new ArrayList<>();
+        try {
+            rS=statement.executeQuery("Select rate from bankRate natural join investment where customer_nr='"+login+"'");
+            rS.next();
+            String rate=rS.getString("rate");
+
+            rS=statement.executeQuery("SELECT * from investment where customer_nr='"+login+"'");
+            while(rS.next())
+                listInvestment.list.add(new InvestmentHistory(rS.getString("amount"),rS.getString("dateFrom"),
+                        rS.getString("dateTo"),rate,rS.getString("status"),rS.getString("finalAmount")));
+            listInvestment.error="0";
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            listInvestment.error="1";
+        }
+        return listInvestment;
     }
 
     @Override

@@ -516,13 +516,69 @@ public class BaseServerImpl
 	@Override
 	public Loan getLoanHistory(String login) throws RemoteException
 	{
-		return null;
+		Loan temporary;
+		while(true)
+		{
+			if(serverState_1.get())
+			{
+				synchronized (computingSever_1)
+				{
+					serverState_1.set(false);
+					temporary = computingSever_1.getLoanHistory(login);
+					serverState_1.set(true);
+				}
+
+				break;
+			}
+			else if(serverState_2.get())
+			{
+				synchronized (computingSever_2)
+				{
+					serverState_2.set(false);
+					temporary = computingSever_2.getLoanHistory(login);
+					serverState_2.set(true);
+				}
+				break;
+			}
+		}
+
+		logServer.AddMessageToLog("RequestListAddAccount", login, temporary);
+
+		return temporary;
 	}
 
 	@Override
 	public ListInvestment getInvestmentHistory(String login) throws RemoteException
 	{
-		return null;
+		ListInvestment temporary;
+		while(true)
+		{
+			if(serverState_1.get())
+			{
+				synchronized (computingSever_1)
+				{
+					serverState_1.set(false);
+					temporary = computingSever_1.getInvestmentHistory(login);
+					serverState_1.set(true);
+				}
+
+				break;
+			}
+			else if(serverState_2.get())
+			{
+				synchronized (computingSever_2)
+				{
+					serverState_2.set(false);
+					temporary = computingSever_2.getInvestmentHistory(login);
+					serverState_2.set(true);
+				}
+				break;
+			}
+		}
+
+		logServer.AddMessageToLog("RequestListAddAccount", login, temporary);
+
+		return temporary;
 	}
 
 	@Override

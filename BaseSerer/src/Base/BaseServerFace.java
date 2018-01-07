@@ -23,7 +23,7 @@ public interface BaseServerFace
     String getBalance(String login) throws RemoteException; // checked
     TransferData getTransferHistory(TransferHistory data) throws RemoteException; //ok(w)
     PersonalData getPersonalData(String login) throws RemoteException; //checked
-    Loan getLoanHistory(String login) throws RemoteException; //ok(w)
+    Loan getLoanHistory(String login) throws RemoteException; //checked
     ListInvestment getInvestmentHistory(String login) throws RemoteException; //ok(w)
     RequestListAddAccount getRequestAddAccount(String login) throws RemoteException; //checked
     RequestListAddAccount getRequestChangePersonalData(String login) throws RemoteException; //checked

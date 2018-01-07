@@ -44,21 +44,33 @@ public class CheckData
 
     public boolean checkPassword(String password)
     {
+        if(password == null)
+            return false;
+
         return !password.isEmpty() && textHasCapital(password) && !textHasSpecial(password) && textHasNumber(password);
     }
 
     public boolean checkIfOnlyNum(String text)
     {
+        if(text == null)
+            return false;
+
         return !text.isEmpty() && !textHasCharacter(text) && !textHasSpecial(text) && textHasNumber(text);
     }
 
     public boolean checkIfOnlyChars(String text)
     {
+        if(text == null)
+            return false;
+
         return !text.isEmpty() && textHasCharacter(text) && !textHasSpecial(text) && !textHasNumber(text);
     }
 
     public boolean checkCompanyName(String text)
     {
+        if(text == null)
+            return false;
+
         return  !text.isEmpty() &&
                 !text.matches(".*[!@#$,<>/?;:'%^&*()`~}{|_=+].*") &&
                 !text.contains("]")&&
@@ -73,6 +85,9 @@ public class CheckData
         boolean isAmountCorrect;
         boolean isAmountAfterCommaCorrect;
         boolean isTransferTitleCorrect;
+
+        if(accNoTo == null || amount == null || amountAfterComma == null || transferTitle == null)
+            return false;
 
         isAccNoToCorrect = accNoTo.length() == 9  &&
                 !textHasCharacter(accNoTo) &&
@@ -108,6 +123,9 @@ public class CheckData
         String idNumOnly;
         String idSeriesOnly;
 
+        if(name == null || lastName == null || pesel == null || city == null || street == null || zipCode == null || idNumber == null || phoneNum == null || email == null)
+            return false;
+
         isNameCorrect = !name.isEmpty() &&
                 !textHasNumber(name) &&
                 !textHasSpecial(name);
@@ -125,14 +143,10 @@ public class CheckData
         else
             isPeselCorrecct = false;
 
-        if(city == null)
-            isCityCorrect = false;
-        else
-        {
-            isCityCorrect = !city.isEmpty() &&
-                    !textHasNumber(city) &&
-                    !textHasSpecial(city);
-        }
+        isCityCorrect = !city.isEmpty() &&
+                !textHasNumber(city) &&
+                !textHasSpecial(city);
+
 
         // has only "/"
         isStreetCorrect = !street.isEmpty() &&

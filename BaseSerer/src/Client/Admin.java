@@ -452,16 +452,19 @@ public class Admin
     }
 
     /*
-* errorCode:
-* */
-    public int unlockAcc()
+    * errorCode:
+    * -2 unsuitable data in fields or clientNo and repeatedClientNo are not equal
+    * -1 sth wrong with base server
+    * 0 ok
+    * 1 sth wrong with database
+    * 2 there is no such clientNo
+    * */
+    public String unlockAcc(String clientNo, String repeatClientNo)
     {
-        int errorCode = -1;
-        LogTo toSend = new LogTo();
-        LogFrom received;
+        String received;
 
-        //Pack and encode data
-        // TO DO
+        if(!checkData.checkIfOnlyNum(clientNo) || !checkData.checkIfOnlyNum(repeatClientNo) || !clientNo.equals(repeatClientNo))
+           return "-2";
 
         //checking whether new thread can be created
         //TO DO
@@ -470,42 +473,46 @@ public class Admin
         //TO DO
 //---------------------------------poprawne wysylanie------------------------------------------
         //sending and receiving data to/from main server, interpreting received data all in thread
-        try
-        {
+//        try
+//        {
+//            received = server.unlockAcc(userId, clientNo);
+//        }
+//        catch (Exception e)
+//        {
+//
+//            System.out.println("Error: " + e);
+//            e.printStackTrace();
+//            return "-1";
+//        }
+        received = "0";
 
-        }
-        catch (Exception e)
-        {
-
-            System.out.println("Error: " + e);
-            e.printStackTrace();
-            return -1;
-        }
-        //chcek if received if null !!!
+        if(received == null)
+            return "-1";
 
 //----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
-
-        // interpret data
 
         //end thread
 
         //can I return sth inside a thread or better outside??
-        return errorCode;
+        return received;
     }
 
     /*
-* errorCode:
-* */
-    public int deleteAcc()
+    * errorCode:
+    * -2 unsuitable data in fields or clientNo and repeatedClientNo are not equal
+    * -1 sth wrong with base server
+    * 0 ok
+    * 1 sth wrong with database
+    * 2 there is no such clientNo
+    * 3 client has active investment
+    * 4 client has active loan
+    * */
+    public String deleteAcc(String clientNo, String repeatClientNo)
     {
-        int errorCode = -1;
-        LogTo toSend = new LogTo();
-        LogFrom received;
+        String received;
 
-        //Pack and encode data
-        // TO DO
+        if(!checkData.checkIfOnlyNum(clientNo) || !checkData.checkIfOnlyNum(repeatClientNo) || !clientNo.equals(repeatClientNo))
+            return "-2";
 
         //checking whether new thread can be created
         //TO DO
@@ -514,29 +521,28 @@ public class Admin
         //TO DO
 //---------------------------------poprawne wysylanie------------------------------------------
         //sending and receiving data to/from main server, interpreting received data all in thread
-        try
-        {
+//        try
+//        {
+//            received = server.deleteAcc(userId, clientNo);
+//        }
+//        catch (Exception e)
+//        {
+//
+//            System.out.println("Error: " + e);
+//            e.printStackTrace();
+//            return "-1";
+//        }
+        received = "4";
 
-        }
-        catch (Exception e)
-        {
-
-            System.out.println("Error: " + e);
-            e.printStackTrace();
-            return -1;
-        }
-        //chcek if received if null !!!
+        if(received == null)
+            return "-1";
 
 //----------------------------------------------------------------------------------------------
-        //decoding data
-        //TO DO
-
-        // interpret data
 
         //end thread
 
         //can I return sth inside a thread or better outside??
-        return errorCode;
+        return received;
     }
     //----------------------------------------------------------------------------------------------
     //**********************************************************************************************
