@@ -540,7 +540,7 @@ public class ComputingServerImpl
         listInvestment.list= new ArrayList<>();
         try {
 
-            rS=statement.executeQuery("SELECT * from investment natural join bankRate where customer_nr='"+login+"' order by date desc");
+            rS=statement.executeQuery("SELECT * from investment natural join bankRate where customer_nr='"+login+"' order by dateFrom desc");
             while(rS.next())
                 listInvestment.list.add(new InvestmentHistory(rS.getString("amount"),rS.getString("dateFrom"),
                         rS.getString("dateTo"),rS.getString("rate"),rS.getString("status"),rS.getString("finalAmount")));

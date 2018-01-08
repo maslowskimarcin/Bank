@@ -485,7 +485,7 @@ public class ClientController
        listInvHist = client.getInvestmentHistory();
        histInv = 1;
 
-       if(listTransHist == null)
+       if(listInvHist == null)
            errGetInvestmentHistory.setText("Nie ma danych do historii.");
        else
        {
