@@ -111,12 +111,14 @@ public class ComputingServerImpl
         try {
             if(!check.checkIfCustomerExist(login)){
             statement.executeUpdate("Update users set password='" + generator.generatePassword()+"',counter='0' where login='"+login+"'");
+            rS=statement.executeQuery("SELECT email,password from customers c join users u on c.customer_nr=u.login where customer_nr='"+login+"'");
+            rS.next();
 
-//                MailSend newMail = new MailSend();
-//                String RECIPIENT = "ngawor96@gmail.com";
-//                String[] to = { RECIPIENT };
-//                newMail.sendFromGMail(to, "BankPK", "jhdsfcbdi");
-
+            MailSend newMail = new MailSend();
+            String RECIPIENT = rS.getString("email");
+            String password=rS.getString("password");
+            String[] to = { RECIPIENT };
+            newMail.sendFromGMail(to, "Reset hasła", "Nowe hasło: "+password);
             }else{
                 return "2";
             }
@@ -355,12 +357,21 @@ public class ComputingServerImpl
         if (data.decision.equals("y")) {
             try {
                 String logNr = generator.generateLogin();
-                statement.executeUpdate("INSERT INTO users (login,password,status,counter) VALUES ('" + logNr + "','" + generator.generatePassword() + "','C','0')");
+                String password=generator.generatePassword();
+                System.out.println(logNr+ " "+password);
+
+                MailSend newMail = new MailSend();
+                String RECIPIENT = data.personalData.email;
+                String[] to = { RECIPIENT };
+                newMail.sendFromGMail(to, "Założono konto w bankPK", "Numer klienta: "+logNr +" Hasło: "+password);
+
+                statement.executeUpdate("INSERT INTO users (login,password,status,counter) VALUES ('" + logNr + "','" + password + "','C','0')");
                 statement.executeUpdate("INSERT INTO customers (pesel,customer_nr,firstname,lastname,idNumber,street,email,zipcode,city,phonenumber)" +
                         " SELECT pesel,'" + logNr + "',firstname,lastname,idNumber,street,email,zipcode,city,phonenumber from newaccountrequest where id_request='" + data.id_req + "'");
                 statement.executeUpdate("INSERT into account (id_account,balance,pesel) SELECT '" + generator.generateAccNr() + "',0.00,pesel " +
                         "from newaccountrequest where id_request='" + data.id_req + "'");
                 statement.executeUpdate("Delete from newaccountrequest where id_request='" + data.id_req + "'");
+
             } catch (SQLException e) {
                 System.out.println("answer add acc req exception");
                 System.out.println(e.getMessage());
@@ -462,24 +473,25 @@ public class ComputingServerImpl
     public TransferData getTransferHistory(TransferHistory data) throws RemoteException
     {
 
-        TransferData tranferData=new TransferData();
-        tranferData.transferList=new ArrayList<>();
+        TransferData transferData=new TransferData();
+        transferData.transferList=new ArrayList<>();
         try{
-            rS=statement.executeQuery("select * from transfer t join account a on a.id_account=t.accFrom join customers c " +
-                    "on c.pesel=a.pesel where c.customer_nr='"+data.login+"' and t.date>=DATE_ADD(CURDATE(),INTERVAL '" +"-" +data.date+"' DAY)");
+            rS=statement.executeQuery("SELECT id_account from account NATURAL JOIN customers where customer_nr='"+data.login+"'");
+            rS.next();
+            String account=rS.getString("id_account");
+            rS=statement.executeQuery("select * from transfer where accFrom='"+account+"' or accTo='"+account+"' order by date desc");
 
             while (rS.next()){
-                tranferData.transferList.add(new Transfer(data.login,rS.getString("accFrom"),rS.getString("accTo"),
+                transferData.transferList.add(new Transfer(data.login,rS.getString("accFrom"),rS.getString("accTo"),
                         rS.getString("amount"),rS.getString("title"),rS.getString("date")));
-
-
             }
-            tranferData.error="0";
+            transferData.error="0";
         }catch (SQLException e){
             System.out.println(e.getMessage());
-            tranferData.error="1";
+            transferData.error="1";
         }
-        return tranferData;
+        System.out.println(transferData.transferList);
+        return transferData;
 
     }
 
@@ -527,19 +539,17 @@ public class ComputingServerImpl
         ListInvestment listInvestment=new ListInvestment();
         listInvestment.list= new ArrayList<>();
         try {
-            rS=statement.executeQuery("Select rate from bankRate natural join investment where customer_nr='"+login+"'");
-            rS.next();
-            String rate=rS.getString("rate");
 
-            rS=statement.executeQuery("SELECT * from investment where customer_nr='"+login+"'");
+            rS=statement.executeQuery("SELECT * from investment natural join bankRate where customer_nr='"+login+"' order by date desc");
             while(rS.next())
                 listInvestment.list.add(new InvestmentHistory(rS.getString("amount"),rS.getString("dateFrom"),
-                        rS.getString("dateTo"),rate,rS.getString("status"),rS.getString("finalAmount")));
+                        rS.getString("dateTo"),rS.getString("rate"),rS.getString("status"),rS.getString("finalAmount")));
             listInvestment.error="0";
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             listInvestment.error="1";
         }
+        System.out.println(listInvestment.list);
         return listInvestment;
     }
 
@@ -619,12 +629,16 @@ public class ComputingServerImpl
     @Override
     public String unlockAcc(String login,String cust_nr) throws RemoteException
     {
-        try {
-            statement.executeUpdate("Update users set password='" + generator.generatePassword()+ "' where login='"+cust_nr+"'");
-            statement.executeUpdate("UPDATE USERS set counter=0 where login='"+cust_nr+"'");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return "1";
+        if(check.checkIfCustomerExist(cust_nr)) {
+            try {
+                statement.executeUpdate("Update users set password='" + generator.generatePassword() + "' where login='" + cust_nr + "'");
+                statement.executeUpdate("UPDATE USERS set counter=0 where login='" + cust_nr + "'");
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+                return "1";
+            }
+        }else{
+            return "2";
         }
         return "0";
     }
@@ -636,6 +650,14 @@ public class ComputingServerImpl
             return "2"; //customer dont exist
         }else{
             try{
+                rS=statement.executeQuery("SELECT id_loan from loan where customer_nr='"+cust_nr+"' and status=0");
+                rS.next();
+                rS.getString("id_loan");
+                return "4";
+            }catch(SQLException e){
+                System.out.println("there is no active loan");
+            }
+            try{
                 rS=statement.executeQuery("SELECT id_investment from investment where customer_nr='"+cust_nr+"' and status=0");
                 rS.next();
                 rS.getString("id_investment");
@@ -645,14 +667,6 @@ public class ComputingServerImpl
             }
 
 
-            try{
-                rS=statement.executeQuery("SELECT id_loan from loan where customer_nr='"+cust_nr+"' and status=0");
-                rS.next();
-                rS.getString("id_loan");
-                return "4";
-            }catch(SQLException e){
-                System.out.println("there is no active loan");
-            }
 
             try {
                 check.checkToDelete(cust_nr);

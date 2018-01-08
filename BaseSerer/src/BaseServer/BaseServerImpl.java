@@ -366,6 +366,7 @@ public class BaseServerImpl
 
 		logServer.AddMessageToLog("answerAddAccountReq", login, data);
 
+		System.out.println("TEMPORAEy"+temporary);
 		return temporary;
 	}
 

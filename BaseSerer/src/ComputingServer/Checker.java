@@ -245,8 +245,5 @@ public class Checker {
             System.out.println( e.getMessage());
             System.out.println("customer does not have transactions");
         }
-
-
     }
-
 }

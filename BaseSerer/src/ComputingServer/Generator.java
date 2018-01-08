@@ -55,10 +55,9 @@ public class Generator {
                 rS.next();
                 rS.getString("login");
             }catch (Exception e){
-                System.out.println("generateLogin exception");
-                System.out.println(e.getMessage());
                 return strLogin;
             }
+
         }
     }
     public String generateAccNr() throws SQLException {

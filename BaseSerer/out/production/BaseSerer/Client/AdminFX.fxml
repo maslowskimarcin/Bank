@@ -396,9 +396,9 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label fx:id="errChangePass" layoutX="45.0" layoutY="392.0" prefHeight="86.0" prefWidth="496.0" textFill="RED">
+            <Label fx:id="errChangePass" alignment="TOP_LEFT" layoutX="45.0" layoutY="392.0" prefHeight="86.0" prefWidth="496.0" textFill="RED">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="45.0" layoutY="274.0" text="Po udanej próbie zmiany hasła zostaniesz automatycznie wylogowany." textFill="GREEN">
@@ -426,9 +426,9 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label fx:id="errAddFunds" layoutX="31.0" layoutY="335.0" prefHeight="86.0" prefWidth="496.0" textFill="RED">
+            <Label fx:id="errAddFunds" alignment="TOP_LEFT" layoutX="31.0" layoutY="335.0" prefHeight="86.0" prefWidth="496.0" textFill="RED">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="45.0" layoutY="97.0" text="Wprowadź dane :">

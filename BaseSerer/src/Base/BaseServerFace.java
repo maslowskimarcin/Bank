@@ -7,7 +7,7 @@ public interface BaseServerFace
         extends Remote
 {
     LogFrom logIn(String login, LogTo data) throws Exception; //checked // changed from RemoteException
-    String restartPassword(String login) throws RemoteException;//checked + email
+    String restartPassword(String login) throws RemoteException;//checked
     String transfer(Transfer data) throws RemoteException; //checked
     String changePassword(LogTo data) throws RemoteException; // checked
     String addFunds(String login,Funds data) throws RemoteException; //checked
@@ -16,7 +16,7 @@ public interface BaseServerFace
     String requestChangePersonalData(String login, PersonalData data) throws RemoteException;// checked
     String requestInvestment(Investment data) throws RemoteException; //checked
 
-    String answerAddAccountReq(String login, AddAccReqDecision data) throws RemoteException; //checked //email
+    String answerAddAccountReq(String login, AddAccReqDecision data) throws RemoteException; //checked
     String answerChangePersonalDataReq(String login,AddAccReqDecision data) throws RemoteException; //checked
     String answerLoanReq(String login,LoanDecision data) throws RemoteException; // checked
 
@@ -28,7 +28,7 @@ public interface BaseServerFace
     RequestListAddAccount getRequestAddAccount(String login) throws RemoteException; //checked
     RequestListAddAccount getRequestChangePersonalData(String login) throws RemoteException; //checked
     ListLoanReq getRequestLoan(String login) throws RemoteException; //checked
-    String unlockAcc (String login,String cust_nr) throws RemoteException; // git + mala poprawka
+    String unlockAcc (String login,String cust_nr) throws RemoteException; // checked
     String deleteAcc (String login,String cust_nr) throws RemoteException; // checked
 
 
