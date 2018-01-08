@@ -37,7 +37,7 @@
                   </TextField>
                </children>
             </VBox>
-            <Button layoutX="69.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleResetPass" text="Zresetuj hsało">
+            <Button layoutX="69.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleResetPass" text="Zresetuj hasło">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

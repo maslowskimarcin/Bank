@@ -194,7 +194,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="209.0" layoutY="150.0" prefWidth="180.0" spacing="10.0">
+            <VBox layoutX="209.0" layoutY="152.0" prefWidth="180.0" spacing="9.0">
                <children>
                   <Label fx:id="nameAndLastName" prefWidth="180.0" text="Label">
                      <font>
@@ -213,7 +213,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="487.0" layoutY="155.0" prefWidth="180.0" spacing="10.0">
+            <VBox layoutX="487.0" layoutY="157.0" prefWidth="180.0" spacing="9.0">
                <children>
                   <Label fx:id="street" prefWidth="180.0" text="Label">
                      <font>
@@ -282,7 +282,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="209.0" layoutY="268.0" prefWidth="180.0" spacing="10.0">
+            <VBox layoutX="209.0" layoutY="270.0" prefWidth="180.0" spacing="9.0">
                <children>
                   <Label fx:id="email" prefWidth="180.0" text="Label">
                      <font>

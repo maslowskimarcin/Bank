@@ -575,7 +575,7 @@ public class ClientController
     private void loadInvestmentHistory()
     {
         InvestmentHistory el;
-        String status = "-1", space;
+        String status = "-1", space, space2;
 
         listViewSize = 0;
 
@@ -595,7 +595,12 @@ public class ClientController
             else
                 space = "\t\t";
 
-            listView.getItems().add("\t" + el.amount + space + el.dateFrom + "\t\t" + el.dateTo + "\t\t\t" + el.rate + "\t\t\t\t" + el.finalAmount + "\t\t" + status);
+            if(el.finalAmount.length()<5)
+                space2 = "\t\t\t";
+            else
+                space2 = "\t\t";
+
+            listView.getItems().add("\t" + el.amount + space + el.dateFrom + "\t\t" + el.dateTo + "\t\t\t" + el.rate + "\t\t\t\t" + el.finalAmount + space2 + status);
             currentListEl++;
             listViewSize++;
         }
@@ -608,7 +613,7 @@ public class ClientController
 
         listViewSize = 0;
 
-        listView.getItems().add("\tData\t\t\t\tNr konta odbiorcy\t\tNr konto nadawcy\t\tKwota\tTytuł\t");
+        listView.getItems().add("\tData\t\t\t\tNr konta odbiorcy\t\tNr konto nadawcy\t\tKwota\t\tTytuł\t");
 
         while(listViewSize < viewLimit && currentListEl < listSize)
         {

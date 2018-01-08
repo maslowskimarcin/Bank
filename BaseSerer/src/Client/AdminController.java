@@ -153,7 +153,7 @@ public class AdminController
         errPersonalData.setText("Zatwierdzono wybór");
 
         if(newAccReq == 1)
-            er = admin.sendAddAccDecision(listPersonalDataReq.get(currentReq).id_request, decision);
+            er = admin.sendAddAccDecision(listPersonalDataReq.get(currentReq).id_request, decision, listPersonalDataReq.get(currentReq));
         else
             er = admin.sendChangeDataDecision(listPersonalDataReq.get(currentReq).id_request, decision, listPersonalDataReq.get(currentReq));
 
@@ -311,7 +311,7 @@ public class AdminController
         AddAccountRequest el= listPersonalDataReq.get(index);
 
         idReq.setText(el.id_request);
-        nameAndLastName.setText(el.firstName + el.lastName);
+        nameAndLastName.setText(el.firstName + " " + el.lastName);
         pesel.setText(el.pesel);
         idNumber.setText(el.idNumber);
         street.setText(el.street);
