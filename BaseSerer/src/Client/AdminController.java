@@ -537,7 +537,7 @@ public class AdminController
                 currentPane = personalDataReqPane;
                 currentPane.setVisible(true);
 
-                errGetLoanReq.setText("Wystąplił problem z probranie nowych wnioskow, spróbuj ponoawnie za chwile.");
+                errGetLoanReq.setText("Wystąpił problem z pobraniem nowych wnioskow, spróbuj ponownie za chwile.");
                 regAmount = -1;
             }
 

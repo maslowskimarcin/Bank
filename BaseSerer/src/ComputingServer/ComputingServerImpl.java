@@ -248,6 +248,8 @@ public class ComputingServerImpl
                         "','"+data.lastName+"','"+data.street+"','"+data.city+"','"+data.zipCode+
                         "','"+data.idNumber+"','"+data.email+"','"+data.phoneNumber+"','"+data.pesel+"',1,1)");
 
+            }else{
+                return "1";
             }
         }catch (SQLException e){
             System.out.println(e.getMessage());
