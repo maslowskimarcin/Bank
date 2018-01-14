@@ -122,13 +122,14 @@ public class Admin
     * 0 ok
     * 1 sth wrong with data base
     * */
-    public String sendAddAccDecision(String idReq, String decision)
+    public String sendAddAccDecision(String idReq, String decision, PersonalData data)
     {
         AddAccReqDecision toSend = new AddAccReqDecision();
         String receivedErr;
 
         toSend.id_req = idReq;
         toSend.decision = decision;
+        toSend.personalData = data;
 
         try
         {

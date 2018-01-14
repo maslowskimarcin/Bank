@@ -570,12 +570,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="55.0" layoutY="155.0" text="PESEL :">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="280.0" layoutY="155.0" text="Numer dowodu :">
+            <Label layoutX="55.0" layoutY="155.0" text="Numer dowodu :">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -642,12 +637,7 @@
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="pesel" layoutX="128.0" layoutY="150.0" prefHeight="37.0" prefWidth="131.0">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="idNumber" layoutX="436.0" layoutY="150.0" prefHeight="37.0" prefWidth="108.0">
+            <TextField fx:id="idNumber" layoutX="211.0" layoutY="150.0" prefHeight="37.0" prefWidth="108.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -849,11 +839,6 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="219.0" layoutY="427.0" prefHeight="120.0" prefWidth="395.0" text="Decyzja o przydzieleniu kredtu zostanie przesłana na adres e-mail." textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
             <ImageView fitHeight="137.0" fitWidth="159.0" layoutX="344.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@pkLogo02.png" />
@@ -946,22 +931,22 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: E6F0FF;" text="1 %" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: E6F0FF;" text="0,5 %" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: E6F0FF;" text="3 %" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: E6F0FF;" text="1,5 %" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: D0E3FF;" text="2 %" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: D0E3FF;" text="1,0 %" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: D0E3FF;" text="4 %" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: D0E3FF;" text="2,0 %" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -1154,13 +1139,13 @@
                </font>
             </Label>
             <Line endX="550.0" layoutX="190.0" layoutY="93.0" startX="-100.0" stroke="#0044aa" strokeWidth="3.0" />
-            <ListView fx:id="listView" fixedCellSize="30.0" focusTraversable="false" layoutX="115.0" layoutY="121.0" prefHeight="340.0" prefWidth="600.0" />
+            <ListView fx:id="listView" fixedCellSize="30.0" focusTraversable="false" layoutX="100.0" layoutY="117.0" prefHeight="340.0" prefWidth="630.0" />
             <Button layoutX="248.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleLessHistory" prefWidth="110.0" text="Poprzednie">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="472.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleMoreHistory" prefWidth="110.0" text="Następne">
+            <Button layoutX="471.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleMoreHistory" prefWidth="110.0" text="Następne">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
