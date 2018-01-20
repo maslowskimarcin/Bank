@@ -20,6 +20,7 @@ public class Admin
         catch (Exception e)
         {
             System.out.println("err Log out");
+            e.printStackTrace();
         }
     }
 
