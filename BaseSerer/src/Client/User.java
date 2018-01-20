@@ -115,6 +115,8 @@ public class User
             return "-1";
         else if(received.error.equals("2"))
             return "-3";
+        else if(received.error.equals("9"))
+            return "-4";
 
         return "-1";
     }
