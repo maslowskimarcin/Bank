@@ -71,6 +71,8 @@ public class LoginController extends Application {
             labLoginProblem.setText("Niepoprawny login lub hasło!");
         else if (errorCode.equals("-3"))
             labLoginProblem.setText("Twoje konto jest zablokowane.");
+        else if (errorCode.equals("-4"))
+            labLoginProblem.setText("Twoje konto jest akutalnie zalogowane.");
 
     }
     @FXML
